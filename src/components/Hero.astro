@@ -1,4 +1,5 @@
 ---
+import { BASE_PATH } from '../config';
 ---
 
 <section class="section">
@@ -20,14 +21,14 @@
 
     <!-- CTA Buttons -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="/basic" class="btn btn-primary text-lg !px-8 !py-3">
+      <a href={`${BASE_PATH}/basic`} class="btn btn-primary text-lg !px-8 !py-3">
         开始学习
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      <a href="/about" class="btn btn-secondary text-lg !px-8 !py-3">
+      <a href={`${BASE_PATH}/about`} class="btn btn-secondary text-lg !px-8 !py-3">
         了解更多
       </a>
     </div>

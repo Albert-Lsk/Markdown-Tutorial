@@ -4,15 +4,16 @@ import { translations } from '../i18n/translations';
 const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'zh';
 const t = translations[currentLang];
 
-const currentPath = Astro.url.pathname.replace(/^\/en/, '');
+const base = '/Markdown-Tutorial';
+const currentPath = Astro.url.pathname.replace(/^\/en/, '').replace(/^\/Markdown-Tutorial/, '');
 
 const navLinks = [
-  { href: currentLang === 'en' ? '/en' : '/', label: t.nav.home },
-  { href: currentLang === 'en' ? '/en/basic' : '/basic', label: t.nav.basic },
-  { href: currentLang === 'en' ? '/en/extended' : '/extended', label: t.nav.extended },
-  { href: currentLang === 'en' ? '/en/editors' : '/editors', label: t.nav.editors },
-  { href: currentLang === 'en' ? '/en/tools' : '/tools', label: t.nav.tools },
-  { href: currentLang === 'en' ? '/en/about' : '/about', label: t.nav.about },
+  { href: currentLang === 'en' ? `${base}/en` : base, label: t.nav.home },
+  { href: currentLang === 'en' ? `${base}/en/basic` : `${base}/basic`, label: t.nav.basic },
+  { href: currentLang === 'en' ? `${base}/en/extended` : `${base}/extended`, label: t.nav.extended },
+  { href: currentLang === 'en' ? `${base}/en/editors` : `${base}/editors`, label: t.nav.editors },
+  { href: currentLang === 'en' ? `${base}/en/tools` : `${base}/tools`, label: t.nav.tools },
+  { href: currentLang === 'en' ? `${base}/en/about` : `${base}/about`, label: t.nav.about },
 ];
 ---
 
@@ -20,7 +21,7 @@ const navLinks = [
   <div class="container">
     <nav class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href={currentLang === 'en' ? '/en' : '/'} class="flex items-center gap-2 no-underline">
+      <a href={currentLang === 'en' ? `${base}/en` : base} class="flex items-center gap-2 no-underline">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="32" height="32" rx="8" fill="#c96442"/>
           <path d="M8 10h4l4 12 4-12h4" stroke="#faf9f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,7 +48,7 @@ const navLinks = [
       <div class="flex items-center gap-4">
         <!-- Language Toggle -->
         <a
-          href={currentLang === 'en' ? currentPath : `/en${currentPath}`}
+          href={currentLang === 'en' ? `${base}${currentPath}` : `${base}/en${currentPath}`}
           class="btn btn-secondary text-sm !py-1.5 !px-3"
           title={currentLang === 'en' ? 'Switch to Chinese' : '切换到英文'}
         >
