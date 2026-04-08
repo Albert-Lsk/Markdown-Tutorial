@@ -123,8 +123,8 @@ body {
   --bg-deep-dark: var(--color-near-black);
 
   --text-primary: var(--color-ivory);
-  --text-secondary: var(--color-warm-silver);
-  --text-tertiary: var(--color-stone-gray);
+  --text-secondary: #c9c7bf;
+  --text-tertiary: #a8a69e;
   --text-on-dark: var(--color-ivory);
   --text-inverse: var(--color-near-black);
 
