@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://Albert-Lsk.github.io/Markdown-Tutorial',
   vite: {
     plugins: [tailwindcss()]
   },
@@ -13,5 +14,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
+  },
+  build: {
+    assets: '_assets'
   }
 });
