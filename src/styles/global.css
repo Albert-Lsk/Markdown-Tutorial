@@ -128,6 +128,8 @@ body {
   --text-on-dark: var(--color-ivory);
   --text-inverse: var(--color-near-black);
 
+  --color-warm-silver: #9a9a92;
+
   --border-default: var(--color-dark-surface);
   --border-strong: var(--color-dark-surface);
   --border-dark: var(--color-dark-surface);
