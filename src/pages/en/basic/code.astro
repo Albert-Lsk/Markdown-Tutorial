@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Code - Markdown Tutorial" description="Learn how to use inline code and code blocks in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Code
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Code</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Use code syntax to display programming code and technical content.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Inline Code</h2>
+          <p>To represent a word or phrase as code, wrap it in backticks (`):</p>
+          <pre><code>At the command prompt, type {`nano`}.</code></pre>
+
+          <h2>Escaping Backticks</h2>
+          <p>If your code contains backticks, wrap the phrase in double backticks:</p>
+          <pre><code>{"``Use `code` in your Markdown file.``"}</code></pre>
+
+          <h2>Code Blocks</h2>
+          <p>To create a code block, indent each line by at least four spaces or one tab:</p>
+          <pre><code>{`    <html>
+        <head>
+        </head>
+    </html>`}</code></pre>
+
+          <p>Note: For code blocks without indentation, use fenced code blocks.</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-code" />
+  </main>
+
+  <Footer />
+</Layout>

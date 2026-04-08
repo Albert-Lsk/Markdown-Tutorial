@@ -1,0 +1,56 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Images - Markdown Tutorial" description="Learn how to insert images in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Images
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Images</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Insert images in documents to make content more vivid and intuitive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>Images use an exclamation mark followed by alt text in brackets and the image URL in parentheses:</p>
+          <pre><code>![Alt Text](image-url)</code></pre>
+
+          <p>Alt text (alternative text) describes the image and improves accessibility when the image can't be displayed.</p>
+
+          <h2>Example</h2>
+          <pre><code>![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)</code></pre>
+
+          <h2>Image Links</h2>
+          <p>To create a clickable image that links to a URL, wrap the image syntax in brackets:</p>
+          <pre><code>{`[![Alt Text](image-url)](link-url)`}</code></pre>
+
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Always add meaningful alt text</li>
+            <li>Use relative paths for local images</li>
+            <li>Be mindful of image copyright</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-images" />
+  </main>
+
+  <Footer />
+</Layout>

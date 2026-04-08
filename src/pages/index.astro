@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import Comments from '../components/Comments.astro';
+
+const features = [
+  {
+    title: '简洁易学',
+    description: '使用直观的符号标记，学习曲线平缓，短时间内即可掌握基础语法。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>'
+  },
+  {
+    title: '格式丰富',
+    description: '支持标题、列表、代码块、表格、链接、图片等多种元素，满足各类文档需求。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>'
+  },
+  {
+    title: '纯文本可移植',
+    description: '几乎可以使用任何应用程序打开 .md 文件，跨平台兼容性强。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>'
+  },
+  {
+    title: '广泛支持',
+    description: 'GitHub、StackOverflow、CSDN、简书等主流平台都支持 Markdown 语法。',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>'
+  }
+];
+---
+
+<Layout title="Markdown 中文教程 - 完整指南" description="Markdown 中文教程网站，学习 Markdown 语法，让人们更多地关注内容本身而非排版。">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="section">
+      <div class="container text-center max-w-4xl mx-auto">
+        <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+          Markdown 中文教程
+        </p>
+
+        <h1 class="font-serif-display text-[var(--text-primary)] mb-6">
+          简洁优雅的<br />标记语言
+        </h1>
+
+        <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-8" style="line-height: 1.6;">
+          Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。
+          <strong>专注于内容本身而非排版</strong>，达到「心中无尘，码字入神」的境界。
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/intro" class="btn btn-primary text-lg !px-8 !py-3">
+            开始学习
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/editor" class="btn btn-secondary text-lg !px-8 !py-3">
+            在线编辑器
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-inverse)] mb-4">
+            为什么选择 Markdown？
+          </h2>
+          <p class="text-[var(--text-on-dark)] opacity-80 max-w-2xl mx-auto">
+            Markdown 让写作变得简单而专注，摆脱繁琐的格式设置，回归内容本身。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature) => (
+            <FeatureCard {...feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-primary)] mb-6">
+              掌握诀窍
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-6" style="line-height: 1.6;">
+              现在开始就参考入门指南学习 Markdown 的使用吧。本指南是为所有人（即便是新手）编写的。
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">1</span>
+                <div>
+                  <h4 class="font-medium text-[var(--text-primary)] mb-1">学习基础语法</h4>
+                  <p class="text-sm text-[var(--text-secondary)]">掌握标题、段落、列表、链接等基本元素的使用方法。</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">2</span>
+                <div>
+                  <h4 class="font-medium text-[var(--text-primary)] mb-1">学习扩展语法</h4>
+                  <p class="text-sm text-[var(--text-secondary)]">创建表格、代码块、任务列表等高级功能。</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">3</span>
+                <div>
+                  <h4 class="font-medium text-[var(--text-primary)] mb-1">选择合适的编辑器</h4>
+                  <p class="text-sm text-[var(--text-secondary)]">从众多优秀的 Markdown 编辑器中选择最适合自己的工具。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a href="/intro" class="btn btn-primary">
+                查看完整教程
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Code Example -->
+          <div class="card-elevated">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-[var(--color-error-crimson)]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#22c55e]"></div>
+            </div>
+            <pre class="font-mono text-sm overflow-x-auto"><code><span class="text-[var(--color-stone-gray)]"># 一级标题</span>
+<span class="text-[var(--color-stone-gray)]">## 二级标题</span>
+
+<span class="text-[var(--color-terracotta)]">**这是粗体文本**</span>
+
+<span class="text-[var(--color-terracotta)]">-</span> 无序列表第一项
+<span class="text-[var(--color-terracotta)]">-</span> 无序列表第二项
+
+<span class="text-[var(--color-terracotta)]">[访问官网](https://markdown.com.cn)</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" style="background-color: var(--color-ivory);">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-primary)] mb-4">
+            文档分类
+          </h2>
+          <p class="text-[var(--text-secondary)] max-w-2xl mx-auto">
+            系统的学习路径，从基础到进阶，循序渐进掌握 Markdown。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="/intro" class="card group hover:border-[var(--color-terracotta)] transition-colors">
+            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+              入门
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)] mb-4">了解 Markdown 是什么、为什么使用它。</p>
+            <span class="text-sm text-[var(--color-terracotta)] font-medium">开始学习 →</span>
+          </a>
+
+          <a href="/basic" class="card group hover:border-[var(--color-terracotta)] transition-colors">
+            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+              基础语法
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)] mb-4">包括标题、段落、列表、链接等核心元素。</p>
+            <span class="text-sm text-[var(--color-terracotta)] font-medium">开始学习 →</span>
+          </a>
+
+          <a href="/extended" class="card group hover:border-[var(--color-terracotta)] transition-colors">
+            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+              扩展语法
+            </h3>
+            <p class="text-sm text-[var(--text-secondary)] mb-4">表格、代码块高亮、任务列表等高级功能。</p>
+            <span class="text-sm text-[var(--color-terracotta)] font-medium">开始学习 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- External Links Section -->
+    <section class="section">
+      <div class="container">
+        <div class="flex flex-wrap justify-center gap-8 text-sm">
+          <a href="https://www.cainiaojc.com/" target="_blank" rel="noopener" class="text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">
+            菜鸟教程
+          </a>
+          <a href="https://man.niaoge.com/" target="_blank" rel="noopener" class="text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">
+            Linux命令大全
+          </a>
+        </div>
+        <p class="text-center text-sm text-[var(--text-tertiary)] mt-4">
+          Made by mrknight with ❤️
+        </p>
+      </div>
+    </section>
+
+    <Comments slug="home" />
+  </main>
+
+  <Footer />
+</Layout>

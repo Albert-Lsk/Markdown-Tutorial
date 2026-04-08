@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+
+const editors = [
+  {
+    name: 'Typora',
+    desc: 'A clean and elegant Markdown editor with real-time preview and WYSIWYG editing.',
+    platform: 'Windows / macOS / Linux',
+    price: 'Free (Beta)',
+    link: '#'
+  },
+  {
+    name: 'VS Code',
+    desc: 'A powerful code editor with built-in Markdown support and excellent extensibility.',
+    platform: 'Windows / macOS / Linux',
+    price: 'Free',
+    link: '#'
+  },
+  {
+    name: 'Obsidian',
+    desc: 'A knowledge management tool based on local folders with bidirectional linking support.',
+    platform: 'Windows / macOS / Linux',
+    price: 'Free (Local)',
+    link: '#'
+  },
+  {
+    name: 'Markdown Here',
+    desc: 'A browser extension for writing Markdown emails in any text field.',
+    platform: 'Browser Extension',
+    price: 'Free',
+    link: '#'
+  },
+  {
+    name: 'Notion',
+    desc: 'An all-in-one notes tool with Markdown block editing support.',
+    platform: 'Web / Windows / macOS / iOS / Android',
+    price: 'Free (Personal)',
+    link: '#'
+  },
+  {
+    name: 'Cmd Markdown',
+    desc: 'A Markdown editor with real-time preview and cloud sync, made in China.',
+    platform: 'Web / Windows / macOS',
+    price: 'Free (Basic)',
+    link: '#'
+  },
+];
+---
+
+<Layout title="Markdown Editors" description="Recommended Markdown editors for different use cases." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Editors
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown Editors
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Choose a comfortable editor to make writing more efficient and enjoyable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {editors.map((editor) => (
+            <div class="card hover:shadow-whisper transition-shadow">
+              <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2">
+                {editor.name}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] mb-4">
+                {editor.desc}
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+                  {editor.platform}
+                </span>
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-terracotta)] text-[var(--text-inverse)]">
+                  {editor.price}
+                </span>
+              </div>
+              <a href={editor.link} class="text-sm text-[var(--color-terracotta)] hover:underline">
+                Learn More →
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="editors" />
+  </main>
+
+  <Footer />
+</Layout>

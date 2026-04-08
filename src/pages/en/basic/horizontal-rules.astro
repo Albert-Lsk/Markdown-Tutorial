@@ -1,0 +1,68 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Horizontal Rules - Markdown Tutorial" description="Learn how to create horizontal rules in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Horizontal Rules
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Horizontal Rules</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Use horizontal rules to create visual separation between content.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>To create a horizontal rule, place three or more asterisks, dashes, or underscores on their own line:</p>
+          <pre><code>---
+***
+___</code></pre>
+
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6 space-y-6">
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">Using three dashes (---):</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">Using three asterisks (***):</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">Using three underscores (___):</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+        </div>
+
+        <div class="prose">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Leave blank lines before and after horizontal rules to avoid being interpreted as headings</li>
+            <li>Pick one symbol and stay consistent</li>
+            <li>Don't add spaces or other characters to horizontal rules</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-horizontal-rules" />
+  </main>
+
+  <Footer />
+</Layout>

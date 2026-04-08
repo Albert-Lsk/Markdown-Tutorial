@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="内嵌 HTML 标签 - Markdown 中文教程" description="学习在 Markdown 中使用 HTML 标签。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / HTML
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">内嵌 HTML 标签</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            在 Markdown 文档中使用 HTML 标签来增强格式化能力。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本规则</h2>
+          <p>Markdown 支持在文档中直接使用 HTML 标签。这对于 Markdown 本身不支持的格式非常有用。</p>
+
+          <h2>常用 HTML 标签</h2>
+          <ul>
+            <li><code>&lt;kbd&gt;</code> - 键盘按键</li>
+            <li><code>&lt;mark&gt;</code> - 高亮文本</li>
+            <li><code>&lt;sub&gt;</code> - 下标</li>
+            <li><code>&lt;sup&gt;</code> - 上标</li>
+            <li><code>&lt;details&gt;</code> - 可折叠内容</li>
+          </ul>
+
+          <h2>示例</h2>
+          <p>键盘按键：</p>
+          <pre><code>按 Ctrl + C {`复制`} 或 Ctrl + V {`粘贴`}</code></pre>
+
+          <p>高亮文本：</p>
+          <pre><code>{`<mark>高亮文本</mark>`}</code></pre>
+
+          <h2>安全考虑</h2>
+          <p>出于安全考虑，某些 HTML 标签（如 <code>&lt;script&gt;</code>）在大多数 Markdown 处理器中会被禁用。</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-htmls" />
+  </main>
+
+  <Footer />
+</Layout>

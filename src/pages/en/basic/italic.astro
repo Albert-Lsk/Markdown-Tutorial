@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Italic - Markdown Tutorial" description="Learn how to create italic text in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Italic
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Italic</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Use italic to add subtle emphasis to text.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Syntax</h2>
+          <p>There are two ways to create italic text in Markdown:</p>
+
+          <h3>Using a single asterisk</h3>
+          <pre><code>*This is italic text*</code></pre>
+
+          <h3>Using a single underscore</h3>
+          <pre><code>_This is italic text_</code></pre>
+
+          <h2>Preview</h2>
+          <div class="card">
+            <p class="text-lg mb-2"><em>This is italic text using asterisks</em></p>
+            <p class="text-lg"><em>This is italic text using underscores</em></p>
+          </div>
+
+          <h2>Use Cases</h2>
+          <ul>
+            <li>Titles of books, movies, and other works</li>
+            <li>Foreign words or technical terms</li>
+            <li>Subtle emphasis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-italic" />
+  </main>
+
+  <Footer />
+</Layout>

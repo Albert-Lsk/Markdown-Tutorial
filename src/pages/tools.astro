@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Comments from '../components/Comments.astro';
+
+const tools = [
+  {
+    name: 'Dillinger',
+    desc: '在线 Markdown 编辑器，支持导出 HTML、PDF。',
+    category: '在线工具'
+  },
+  {
+    name: 'StackEdit',
+    desc: '浏览器内的 Markdown 编辑器，支持同步到 Google Drive。',
+    category: '在线工具'
+  },
+  {
+    name: 'Marked',
+    desc: 'JavaScript Markdown 解析器，速度快。',
+    category: '开发者工具'
+  },
+  {
+    name: 'markdown-it',
+    desc: 'Node.js / Browser 的 Markdown 解析器，支持插件。',
+    category: '开发者工具'
+  },
+];
+---
+
+<Layout title="相关工具 - Markdown 中文教程" description="Markdown 相关工具和资源推荐。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            工具
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            相关工具
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            提升 Markdown 使用效率的工具和资源。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tools.map((tool) => (
+            <div class="card">
+              <span class="text-xs text-[var(--color-terracotta)] uppercase tracking-wider">
+                {tool.category}
+              </span>
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] my-2">
+                {tool.name}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                {tool.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="tools" />
+  </main>
+
+  <Footer />
+</Layout>

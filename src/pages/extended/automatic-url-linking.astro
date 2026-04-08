@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="自动链接 - Markdown 中文教程" description="学习 Markdown 的自动链接功能。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法 / 自动链接
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">自动链接</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Markdown 自动将 URL 和邮箱地址转换为可点击链接。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>使用尖括号包裹 URL 或邮箱地址：</p>
+
+          <pre><code>&lt;https://markdown.com.cn&gt;
+&lt;fake@example.com&gt;</code></pre>
+
+          <h2>效果预览</h2>
+          <ul>
+            <li><a href="https://markdown.com.cn" class="text-[var(--color-terracotta)]">https://markdown.com.cn</a></li>
+            <li><a href="mailto:fake@example.com" class="text-[var(--color-terracotta)]">fake@example.com</a></li>
+          </ul>
+
+          <h2>注意事项</h2>
+          <p>不带尖括号的裸 URL 在某些 Markdown 处理器中也会自动转换为链接，但在基本语法层面推荐使用尖括号包裹以确保兼容性。</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-automatic-url-linking" />
+  </main>
+
+  <Footer />
+</Layout>

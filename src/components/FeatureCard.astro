@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="card hover:shadow-whisper transition-shadow">
+  <div class="w-12 h-12 rounded-[var(--radius-comfortable)] bg-[var(--color-warm-sand)] flex items-center justify-center mb-4">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2">{title}</h3>
+  <p class="text-[var(--text-secondary)] text-sm leading-relaxed">{description}</p>
+</div>
+
+<style>
+  .card:hover {
+    border-color: var(--color-border-warm);
+  }
+</style>

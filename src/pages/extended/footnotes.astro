@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="脚注 - Markdown 中文教程" description="学习在 Markdown 中添加脚注注释。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法 / 脚注
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">脚注</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            添加脚注来引用来源或提供补充说明。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>脚注使用以下格式：</p>
+          <pre><code>这是一段文本，包含脚注[^1]。
+
+[^1]: 这是脚注的内容。</code></pre>
+
+          <h2>命名脚注</h2>
+          <p>可以使用命名脚注引用：</p>
+          <pre><code>这是一段文本，包含脚注[^note]。
+
+[^note]: 这是脚注的详细说明。</code></pre>
+
+          <h2>使用场景</h2>
+          <ul>
+            <li>学术论文引用来源</li>
+            <li>技术文档提供补充说明</li>
+            <li>博客文章添加参考链接</li>
+          </ul>
+
+          <h2>注意事项</h2>
+          <p>脚注功能并非所有 Markdown 处理器都支持。常见支持的环境包括 GitHub（部分支持）和一些学术写作工具。</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-footnotes" />
+  </main>
+
+  <Footer />
+</Layout>

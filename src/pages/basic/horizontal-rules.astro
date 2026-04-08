@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="分隔线语法 - Markdown 中文教程" description="学习在 Markdown 中创建分隔线。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 分隔线
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">分隔线</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            使用分隔线来创建视觉上的内容分隔。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>要创建分隔线，请在单独一行上使用三个或更多的星号、破折号或下划线：</p>
+          <pre><code>---
+***
+___</code></pre>
+
+          <h2>效果预览</h2>
+        </div>
+
+        <div class="card my-6 space-y-6">
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">使用三个破折号 (---)：</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">使用三个星号 (***)：</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+          <div>
+            <p class="text-sm text-[var(--text-tertiary)] mb-2">使用三个下划线 (___)：</p>
+            <hr class="border-[var(--color-border-warm)]" />
+          </div>
+        </div>
+
+        <div class="prose">
+          <h2>最佳实践</h2>
+          <ul>
+            <li>在分隔线前后保留空行，避免被误解为标题</li>
+            <li>选择一种符号并保持一致</li>
+            <li>不要在分隔线中添加空格或其他字符</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-horizontal-rules" />
+  </main>
+
+  <Footer />
+</Layout>

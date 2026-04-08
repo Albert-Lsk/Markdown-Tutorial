@@ -1,0 +1,81 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Tables - Markdown Tutorial" description="Learn how to create tables in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Extended Syntax / Tables
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Tables</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Organize and display data using tables for structured presentation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>Tables consist of pipes (|) and hyphens (-):</p>
+
+          <pre><code>{`| Syntax | Output |
+| --- | --- |
+| **bold** | <strong>bold</strong> |
+| *italic* | <em>italic</em> |`}</code></pre>
+
+          <h2>Alignment</h2>
+          <p>Set alignment by adding colons in the hyphens below the header:</p>
+
+          <pre><code>{`| Left | Center | Right |
+|:---|:----:| ---:|
+| Content1 | Content2 | Content3 |`}</code></pre>
+
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6 overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b-2 border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">Left</th>
+                <th class="text-center py-2 px-3 font-medium">Center</th>
+                <th class="text-right py-2 px-3 font-medium">Right</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3">Content1</td>
+                <td class="py-2 px-3 text-center">Content2</td>
+                <td class="py-2 px-3 text-right">Content3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose">
+          <h2>Tips</h2>
+          <ul>
+            <li>Use shortcuts: `-:` for right, `:-:` for center, `:-` for left</li>
+            <li>No blank lines needed before or after tables</li>
+            <li>Links, bold, italic can be used inside cells</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-tables" />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="标题语法 - Markdown 中文教程" description="学习如何在 Markdown 中使用标题。掌握从一级到六级标题的创建方法。">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 标题
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            标题
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            使用 # 符号创建不同级别的标题。Markdown 支持六级标题，从一级到六级，重要性递减。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <div class="prose">
+              <h2>语法说明</h2>
+              <p>
+                在 Markdown 中，标题通过在行首添加 # 符号来创建。# 的数量表示标题的级别：
+              </p>
+
+              <pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题</code></pre>
+
+              <h2>效果预览</h2>
+            </div>
+
+            <!-- Heading Examples -->
+            <div class="card my-6">
+              <h1 class="text-4xl font-serif font-medium mb-4">这是一级标题</h1>
+              <h2 class="text-3xl font-serif font-medium mb-4">这是二级标题</h2>
+              <h3 class="text-2xl font-serif font-medium mb-4">这是三级标题</h3>
+              <h4 class="text-xl font-serif font-medium mb-4">这是四级标题</h4>
+              <h5 class="text-lg font-serif font-medium mb-4">这是五级标题</h5>
+              <h6 class="text-base font-serif font-medium">这是六级标题</h6>
+            </div>
+
+            <div class="prose">
+              <h2>使用建议</h2>
+              <ul>
+                <li>每个页面应该只有一个一级标题（h1）</li>
+                <li>标题应该按顺序使用，不要跳级（例如不要从 h2 直接跳到 h4）</li>
+                <li>标题帮助读者快速了解文档结构</li>
+                <li>搜索引擎也会根据标题来理解页面内容</li>
+              </ul>
+
+              <h2>替代语法</h2>
+              <p>
+                除了使用 # 符号，你还可以使用底划线的方式来创建一级和二级标题：
+              </p>
+            </div>
+
+            <div class="card my-6">
+              <p class="text-lg font-serif mb-2">使用等号创建一级标题</p>
+              <hr class="border-[var(--color-border-warm)] mb-4" />
+              <p class="text-base font-serif mb-2">使用连字符创建二级标题</p>
+              <hr class="border-[var(--color-border-warm)]" />
+            </div>
+
+            <div class="prose">
+              <pre><code>这是一级标题
+===
+
+这是二级标题
+---</code></pre>
+
+              <p>
+                虽然这种语法在某些 Markdown 处理器中仍然有效，但我们推荐使用 # 语法，因为它更直观且适用范围更广。
+              </p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div>
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                本节内容
+              </h3>
+              <nav class="space-y-2">
+                <a href="#syntax" class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">语法说明</a>
+                <a href="#preview" class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">效果预览</a>
+                <a href="#tips" class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">使用建议</a>
+                <a href="#alternate" class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">替代语法</a>
+              </nav>
+
+              <div class="mt-6 pt-6 border-t border-[var(--color-border-cream)]">
+                <a href="/basic" class="text-sm text-[var(--color-terracotta)] hover:underline">← 返回基础语法</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-headings" />
+  </main>
+
+  <Footer />
+</Layout>

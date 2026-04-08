@@ -1,0 +1,108 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Escaping Characters - Markdown Tutorial" description="Learn how to escape special characters in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Escaping
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Escaping Characters</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            How to display special characters that are normally used for formatting in Markdown.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>To display characters that are normally used for formatting, use a backslash (<code>\</code>) before the character:</p>
+
+          <h2> escapable Characters</h2>
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">Character</th>
+                <th class="text-left py-2 px-3 font-medium">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">\</td>
+                <td class="py-2 px-3">backslash</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">`</td>
+                <td class="py-2 px-3">backtick</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">*</td>
+                <td class="py-2 px-3">asterisk</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">_</td>
+                <td class="py-2 px-3">underscore</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">{}</td>
+                <td class="py-2 px-3">curly braces</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">[]</td>
+                <td class="py-2 px-3">square brackets</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">()</td>
+                <td class="py-2 px-3">parentheses</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">#</td>
+                <td class="py-2 px-3">pound sign</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">+</td>
+                <td class="py-2 px-3">plus sign</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">-</td>
+                <td class="py-2 px-3">minus sign/dash</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">.</td>
+                <td class="py-2 px-3">period</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-mono">!</td>
+                <td class="py-2 px-3">exclamation mark</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Examples</h2>
+          <p>Display an asterisk instead of italic marker:</p>
+          <pre><code>\*This is not italic\*</code></pre>
+          <p>Renders as: \*This is not italic\*</p>
+
+          <p>Display a pound sign instead of heading:</p>
+          <pre><code>\# This is not a heading</code></pre>
+          <p>Renders as: \# This is not a heading</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-escaping" />
+  </main>
+
+  <Footer />
+</Layout>

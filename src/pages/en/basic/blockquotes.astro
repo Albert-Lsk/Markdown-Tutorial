@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Blockquotes - Markdown Tutorial" description="Learn how to create blockquotes in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Blockquotes
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Blockquotes</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Use blockquotes to present content from other sources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>To create a blockquote, add a > symbol in front of a paragraph:</p>
+          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.`}</code></pre>
+
+          <h2>Multiple Paragraphs</h2>
+          <p>Blockquotes can contain multiple paragraphs. Add a > on the blank line between paragraphs:</p>
+          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor.`}</code></pre>
+
+          <h2>Nested Blockquotes</h2>
+          <p>Blockquotes can be nested. Add a >> symbol for nested paragraphs:</p>
+          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles.`}</code></pre>
+
+          <h2>Blockquotes with Other Elements</h2>
+          <p>Blockquotes can contain other Markdown formatting elements:</p>
+          <pre><code>{`> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+> *Everything* is going according to **plan**.`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-blockquotes" />
+  </main>
+
+  <Footer />
+</Layout>

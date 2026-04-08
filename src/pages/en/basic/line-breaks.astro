@@ -1,0 +1,60 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Line Breaks - Markdown Tutorial" description="Learn about line break rules in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Line Breaks
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Line Breaks</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Understand line break rules in Markdown and how to create line breaks in different scenarios.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Rules</h2>
+          <p>Line breaks in Markdown require special attention:</p>
+          <ul>
+            <li>Add two spaces at the end of a line, then press Enter to create a line break</li>
+            <li>Use the <code>&lt;br&gt;</code> HTML tag to create a line break</li>
+            <li>Pressing Enter directly won't create a line break in most Markdown processors</li>
+          </ul>
+
+          <h2>Examples</h2>
+          <p>Using two spaces for line break:</p>
+          <pre><code>First line of text[space][space]
+Second line of text</code></pre>
+
+          <p>Using HTML tag:</p>
+          <pre><code>First line of text&lt;br&gt;
+Second line of text</code></pre>
+
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Two spaces + Enter is the most common way</li>
+            <li>Use <code>&lt;br&gt;</code> when you need explicit line breaks</li>
+            <li>Leave blank lines between paragraphs for clearer structure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-line-breaks" />
+  </main>
+
+  <Footer />
+</Layout>

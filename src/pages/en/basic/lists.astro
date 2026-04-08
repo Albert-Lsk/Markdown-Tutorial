@@ -1,0 +1,66 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Lists - Markdown Tutorial" description="Learn how to create ordered and unordered lists in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Lists
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Lists</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Organize items into ordered or unordered lists to make information structured and readable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Unordered Lists</h2>
+          <p>To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of each item:</p>
+          <pre><code>{`- First item
+- Second item
+- Third item
+- Fourth item`}</code></pre>
+
+          <h2>Ordered Lists</h2>
+          <p>To create an ordered list, add numbers followed by periods before each item:</p>
+          <pre><code>{`1. First item
+2. Second item
+3. Third item
+4. Fourth item`}</code></pre>
+
+          <h2>Nested Lists</h2>
+          <p>Indent one or more items to create nested lists:</p>
+          <pre><code>{`- Fruit
+  - Apple
+  - Banana
+- Vegetables
+  1. Tomato
+  2. Cucumber`}</code></pre>
+
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Numbers don't need to be in sequential order</li>
+            <li>Lists should start with number 1</li>
+            <li>Don't mix different delimiters in the same list</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-lists" />
+  </main>
+
+  <Footer />
+</Layout>

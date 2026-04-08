@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="代码语法 - Markdown 中文教程" description="学习在 Markdown 中使用行内代码和代码块。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 代码
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">代码</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            使用代码语法展示程序代码和技术内容。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>行内代码</h2>
+          <p>使用反引号（`）包裹短代码：</p>
+          <pre><code>这是一个 `行内代码` 示例</code></pre>
+
+          <h2>代码块</h2>
+          <p>使用三个反引号创建代码块，可指定语言实现语法高亮：</p>
+          <pre><code>{'```javascript'}
+function hello() {'{'}
+  console.log("Hello, World!");
+{'}'}
+{'```'}</code></pre>
+
+          <h2>效果预览</h2>
+        </div>
+
+        <div class="card my-6">
+          <p class="text-sm text-[var(--text-secondary)] mb-4">
+            使用反引号：<code class="bg-[var(--color-warm-sand)] px-1 rounded">const x = 1;</code>
+          </p>
+
+          <pre class="bg-[var(--color-deep-dark)] text-[var(--color-warm-silver)] p-4 rounded-[var(--radius-comfortable)] overflow-x-auto font-mono text-sm">{`<code><span class="text-[var(--color-stone-gray)]">// JavaScript 示例</span>
+<span class="text-[var(--color-terracotta)]">function</span> <span class="text-[var(--color-coral)]">greet</span>(name) {
+  <span class="text-[var(--color-terracotta)]">return</span> <span class="text-[var(--color-dark-warm)]">\`Hello, \${name}!\`</span>;
+}</code>`}</pre>
+        </div>
+
+        <div class="prose">
+          <h2>转义反引号</h2>
+          <p>如果要在代码中显示反引号，使用双反引号包裹：</p>
+          <pre><code>``在代码中使用 ` 反引号``</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-code" />
+  </main>
+
+  <Footer />
+</Layout>

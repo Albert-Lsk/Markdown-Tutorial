@@ -1,0 +1,63 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Paragraphs - Markdown Tutorial" description="Learn how to create paragraphs and line breaks in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Paragraphs
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Paragraphs</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Paragraphs are the most basic content unit in Markdown. Learn how to create paragraphs and handle line breaks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Creating Paragraphs</h2>
+          <p>In Markdown, a paragraph consists of one or more consecutive lines of text, separated by blank lines. To create a new paragraph, simply leave a blank line after the current paragraph.</p>
+
+          <pre><code>{`This is the first paragraph.
+
+This is the second paragraph.
+
+This is the third paragraph.`}</code></pre>
+
+          <h2>Line Break Rules</h2>
+          <p>Line breaks in Markdown require special attention:</p>
+          <ul>
+            <li>Add two spaces at the end of a line, then press Enter, to create a line break</li>
+            <li>Use the <code>&lt;br&gt;</code> HTML tag to create a line break</li>
+            <li>Pressing Enter directly won't create a line break in most Markdown processors</li>
+          </ul>
+
+          <pre><code>{`This is the first line[space][space]
+This is the second line`}</code></pre>
+
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Leave blank lines between paragraphs for clearer structure</li>
+            <li>Don't rely on line breaks to create lists or layouts</li>
+            <li>Use appropriate headings to organize content structure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-paragraphs" />
+  </main>
+
+  <Footer />
+</Layout>

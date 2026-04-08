@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="Emoji 表情 - Markdown 中文教程" description="学习在 Markdown 中使用 Emoji 表情。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法 / Emoji
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">使用 Emoji 表情</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            在 Markdown 文档中添加表情符号。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>使用冒号包裹的 Emoji 代码：</p>
+          <pre><code>:smile:
+:heart:
+:rocket:</code></pre>
+
+          <h2>常用 Emoji 代码</h2>
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">代码</th>
+                <th class="text-left py-2 px-3 font-medium">表情</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm">:smile:</td>
+                <td class="py-2 px-3">😄</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm">:heart:</td>
+                <td class="py-2 px-3">❤️</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm">:rocket:</td>
+                <td class="py-2 px-3">🚀</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm">:star:</td>
+                <td class="py-2 px-3">⭐</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm">:check:</td>
+                <td class="py-2 px-3">✔️</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>直接使用 Emoji</h2>
+          <p>你也可以直接粘贴 Emoji 字符到 Markdown 文档中，大多数编辑器都支持。</p>
+
+          <h2>注意事项</h2>
+          <p>Emoji 支持因处理器而异。在 GitHub 上写作时推荐使用代码形式，以确保跨平台兼容。</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-emoji" />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+
+const tools = [
+  {
+    name: 'Dillinger',
+    desc: 'Online Markdown editor with export to HTML, PDF support.',
+    category: 'Online Tools'
+  },
+  {
+    name: 'StackEdit',
+    desc: 'In-browser Markdown editor with Google Drive synchronization.',
+    category: 'Online Tools'
+  },
+  {
+    name: 'Marked',
+    desc: 'JavaScript Markdown parser, fast processing.',
+    category: 'Developer Tools'
+  },
+  {
+    name: 'markdown-it',
+    desc: 'Markdown parser for Node.js / Browser with plugin support.',
+    category: 'Developer Tools'
+  },
+];
+---
+
+<Layout title="Tools - Markdown Tutorial" description="Markdown-related tools and resources." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Tools
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Related Tools
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Tools and resources to enhance your Markdown workflow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tools.map((tool) => (
+            <div class="card">
+              <span class="text-xs text-[var(--color-terracotta)] uppercase tracking-wider">
+                {tool.category}
+              </span>
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] my-2">
+                {tool.name}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)]">
+                {tool.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="tools" />
+  </main>
+
+  <Footer />
+</Layout>

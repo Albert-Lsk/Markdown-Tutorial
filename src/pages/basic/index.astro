@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+
+const basicTopics = [
+  { href: '/basic/headings', title: '标题', desc: '使用 # 符号创建不同级别的标题' },
+  { href: '/basic/paragraphs', title: '段落', desc: '如何创建段落和换行' },
+  { href: '/basic/line-breaks', title: '换行', desc: 'Markdown 中的换行规则' },
+  { href: '/basic/emphasis', title: '强调', desc: '粗体和斜体的使用方法' },
+  { href: '/basic/blockquotes', title: '引用', desc: '创建块引用' },
+  { href: '/basic/lists', title: '列表', desc: '有序和无序列表的使用' },
+  { href: '/basic/code', title: '代码', desc: '行内代码和代码块' },
+  { href: '/basic/horizontal-rules', title: '分隔线', desc: '使用 --- 创建分隔线' },
+  { href: '/basic/links', title: '链接', desc: '创建超链接' },
+  { href: '/basic/images', title: '图片', desc: '插入和管理图片' },
+  { href: '/basic/escaping-characters', title: '转义字符', desc: '如何显示特殊字符' },
+  { href: '/basic/htmls', title: '内嵌 HTML', desc: '在 Markdown 中使用 HTML 标签' },
+];
+---
+
+<Layout title="基础语法 - Markdown 中文教程">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown 基本语法
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Markdown 是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content with Sidebar -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <!-- Sidebar -->
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                本节内容
+              </h3>
+              <nav class="space-y-1">
+                {basicTopics.map((topic) => (
+                  <a
+                    href={topic.href}
+                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                  >
+                    {topic.title}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                千万不要被「标记」、「语言」吓到，Markdown的语法十分简单，常用的标记符号不超过十个，用于日常写作记录绰绰有余，不到半小时就能完全掌握。
+              </p>
+
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                就是这十个不到的标记符号，却能让人<strong>优雅地沉浸式记录，专注内容而不是纠结排版</strong>，达到「心中无尘，码字入神」的境界。
+              </p>
+
+              <h2>开始学习</h2>
+              <p>从标题开始学习 Markdown 的基本语法吧。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              {basicTopics.slice(0, 6).map((topic) => (
+                <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                  <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                    {topic.title}
+                  </h3>
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    {topic.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic" />
+  </main>
+
+  <Footer />
+</Layout>

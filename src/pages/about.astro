@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Comments from '../components/Comments.astro';
+---
+
+<Layout title="关于 - Markdown 中文教程" description="了解 Markdown 中文教程网站的信息。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            关于
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            关于本站
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Markdown 中文教程是一个帮助你学习 Markdown 标记语言的免费资源网站。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-4">
+              我们的使命
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-4" style="line-height: 1.6;">
+              Markdown 中文教程致力于为中文用户提供优质、免费的 Markdown 学习资源。我们相信，好的工具应该简单易学，而不需要花费大量时间去研究文档。
+            </p>
+            <p class="text-[var(--text-secondary)]" style="line-height: 1.6;">
+              本网站采用 Claude (Anthropic) 的设计风格，展现了温暖、专业的视觉效果。
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-4">
+              参与贡献
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-4" style="line-height: 1.6;">
+              如果你发现任何错误或有改进建议，欢迎通过 GitHub 提交 issue 或 pull request。
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="btn btn-primary">
+                GitHub
+              </a>
+              <a href="#" class="btn btn-secondary">
+                提交反馈
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-ivory);">
+      <div class="container max-w-4xl text-center">
+        <h2 class="font-serif text-3xl font-medium text-[var(--text-primary)] mb-6">
+          技术栈
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Astro
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Tailwind CSS
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Claude Design
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Giscus
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="about" />
+  </main>
+
+  <Footer />
+</Layout>

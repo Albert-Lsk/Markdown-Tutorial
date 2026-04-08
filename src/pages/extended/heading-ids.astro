@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="标题编号 - Markdown 中文教程" description="学习在 Markdown 中为标题添加自定义 ID。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法 / 标题编号
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">标题编号</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            为标题添加自定义 ID，便于链接和引用。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>使用花括号为标题添加自定义 ID：</p>
+
+          <pre><code>{`### 我的标题 {#custom-id}`}</code></pre>
+
+          <p>渲染后的 HTML：</p>
+          <pre><code>{`<h3 id="custom-id">我的标题</h3>`}</code></pre>
+
+          <h2>使用场景</h2>
+          <ul>
+            <li>创建指向特定章节的链接</li>
+            <li>使用锚点链接跳转到页面特定位置</li>
+            <li>配合目录生成工具使用</li>
+          </ul>
+
+          <h2>链接到带 ID 的标题</h2>
+          <pre><code>[跳转到标题](#heading-id)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-heading-ids" />
+  </main>
+
+  <Footer />
+</Layout>

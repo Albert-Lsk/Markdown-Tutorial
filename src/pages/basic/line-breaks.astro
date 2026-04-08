@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="换行语法 - Markdown 中文教程" description="学习 Markdown 中的换行规则。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 换行
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">换行</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            了解 Markdown 中的换行规则，如何在不同场景下创建换行。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本规则</h2>
+          <p>在 Markdown 中，换行需要特别注意：</p>
+          <ul>
+            <li>在行尾添加两个空格然后回车，可以创建换行</li>
+            <li>使用 <code>&lt;br&gt;</code> 标签也可以创建换行</li>
+            <li>直接回车在大多数 Markdown 处理器中不会生效</li>
+          </ul>
+
+          <h2>示例</h2>
+          <p>使用两个空格换行：</p>
+          <pre><code>这是第一行文字[空格][空格]
+这是第二行文字</code></pre>
+
+          <p>使用 HTML 标签：</p>
+          <pre><code>这是第一行文字&lt;br&gt;
+这是第二行文字</code></pre>
+
+          <h2>最佳实践</h2>
+          <ul>
+            <li>使用两个空格 + 回车是最通用的方式</li>
+            <li>在需要明确换行的场景使用 <code>&lt;br&gt;</code> 标签</li>
+            <li>段落之间保留空行使结构更清晰</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-line-breaks" />
+  </main>
+
+  <Footer />
+</Layout>

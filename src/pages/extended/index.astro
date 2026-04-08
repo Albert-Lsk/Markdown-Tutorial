@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+
+const extendedTopics = [
+  { href: '/extended/tables', title: '表格', desc: '创建复杂的表格布局' },
+  { href: '/extended/fenced-code-blocks', title: '围栏代码块', desc: '语法高亮和多语言支持' },
+  { href: '/extended/task-lists', title: '任务列表', desc: '创建复选框任务列表' },
+  { href: '/extended/strikethrough', title: '删除线', desc: '使用删除线标记已删除内容' },
+  { href: '/extended/automatic-url-linking', title: '自动链接', desc: 'URL 和邮箱的自动转换' },
+  { href: '/extended/footnotes', title: '脚注', desc: '添加脚注注释' },
+  { href: '/extended/heading-ids', title: '标题编号', desc: '为标题添加自定义 ID' },
+  { href: '/extended/definition-lists', title: '定义列表', desc: '创建术语和定义的列表' },
+  { href: '/extended/emoji', title: 'Emoji 表情', desc: '在文档中使用表情符号' },
+];
+---
+
+<Layout title="扩展语法 - Markdown 中文教程">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown 扩展语法
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            John Gruber 的原始设计文档中概述的基本语法主要是为了应付大多数情况下的日常所需元素，但对于某些人来说还不够，这就是扩展语法的用武之地。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content with Sidebar -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <!-- Sidebar -->
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                本节内容
+              </h3>
+              <nav class="space-y-1">
+                {extendedTopics.map((topic) => (
+                  <a
+                    href={topic.href}
+                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                  >
+                    {topic.title}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                一些个人和组织开始通过添加其他元素（例如表、代码块、语法突出显示、URL自动链接和脚注）来扩展基本语法。可以通过使用基于基本Markdown语法的轻量级标记语言，或通过向兼容的Markdown处理器添加扩展来启用这些元素。
+              </p>
+
+              <h2>可用性</h2>
+              <p>
+                扩展语法并非所有 Markdown 处理器都支持。常见的支持环境包括 GitHub Flavored Markdown (GFM)、Markdown Here 等。
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {extendedTopics.map((topic) => (
+                <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                  <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                    {topic.title}
+                  </h3>
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    {topic.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended" />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="粗体语法 - Markdown 中文教程" description="学习如何在 Markdown 中创建粗体文本。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 粗体
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">粗体</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            使用粗体强调重要内容，让文字更加突出。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>语法</h2>
+          <p>在 Markdown 中，有两种方式创建粗体文本：</p>
+
+          <h3>使用两个星号</h3>
+          <pre><code>**这是粗体文本**</code></pre>
+
+          <h3>使用两个下划线</h3>
+          <pre><code>__这是粗体文本__</code></pre>
+
+          <h2>效果预览</h2>
+          <div class="card">
+            <p class="text-lg mb-2"><strong>这是使用星号的粗体文本</strong></p>
+            <p class="text-lg"><strong>这是使用下划线的粗体文本</strong></p>
+          </div>
+
+          <h2>使用场景</h2>
+          <ul>
+            <li>强调关键词汇或重要概念</li>
+            <li>标记行动号召（CTA）</li>
+            <li>技术文档中的警告信息</li>
+          </ul>
+
+          <h2>嵌套使用</h2>
+          <p>粗体可以与斜体结合使用：</p>
+          <pre><code>***粗体加斜体***
+**粗体 + *斜体***</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-bold" />
+  </main>
+
+  <Footer />
+</Layout>

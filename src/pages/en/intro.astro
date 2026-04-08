@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="Getting Started - Markdown Tutorial" description="Learn the basics of Markdown, what it is and why you should use it." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Getting Started
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown Basics
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Learn what Markdown is, why to use it, and how to get started.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>What is Markdown?</h2>
+          <p>Markdown is a lightweight markup language that you can use to add formatting elements to plain text documents. Created by John Gruber in 2004, Markdown is now one of the world's most popular markup languages.</p>
+          <p>Key features of Markdown:</p>
+          <ul>
+            <li>Focus on text content</li>
+            <li>Plain text, easy to read, write, and version control</li>
+            <li>Simple syntax with minimal learning curve</li>
+          </ul>
+
+          <blockquote>
+            <p>The overriding design goal for Markdown's formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.</p>
+          </blockquote>
+
+          <h2>Why Use Markdown?</h2>
+          <ul>
+            <li><strong>Markdown is everywhere</strong> — Supported by GitHub, StackOverflow, CSDN, Notion and more</li>
+            <li><strong>Plain text is portable</strong> — Almost any application can open a Markdown file</li>
+            <li><strong>Platform independent</strong> — Create Markdown files on any device running any OS</li>
+            <li><strong>Future-proof</strong> — Even if an application stops being supported, you can still read Markdown files with a text editor</li>
+          </ul>
+
+          <h2>Tools of the Trade</h2>
+          <p>The best way to learn Markdown is to start using it. You don't even need to download anything — try the online Markdown editor.</p>
+
+          <h2>How Markdown Works</h2>
+          <p>When you write in Markdown, the text is stored in a plain text file with a <code>.md</code> or <code>.markdown</code> extension. A Markdown application processes the Markdown-formatted text and converts it to HTML for display in a web browser.</p>
+
+          <h2>What Can You Do with Markdown?</h2>
+          <ul>
+            <li><strong>Websites</strong> — Jekyll, GitHub Pages and other tools support Markdown for creating websites</li>
+            <li><strong>Documents</strong> — Great for notes and technical documentation</li>
+            <li><strong>Presentations</strong> — Remark, Cleaver and other tools support Markdown slides</li>
+            <li><strong>Email</strong> — Markdown Here extension supports Markdown in emails</li>
+          </ul>
+
+          <h2>Markdown Flavors</h2>
+          <p>The confusing thing about using Markdown is that virtually every application implements a slightly different version of Markdown. These variants are often called "flavors."</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="intro" />
+  </main>
+
+  <Footer />
+</Layout>

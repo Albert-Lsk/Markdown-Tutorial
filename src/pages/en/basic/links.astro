@@ -1,0 +1,56 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Links - Markdown Tutorial" description="Learn how to create hyperlinks in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Links
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Links</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Create hyperlinks to connect to other pages or external resources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Syntax</h2>
+          <p>Links consist of link text in brackets, followed by the URL in parentheses:</p>
+          <pre><code>[Link Text](https://example.com)</code></pre>
+
+          <h2>Adding a Title</h2>
+          <p>The title appears when you hover over the link and is optional:</p>
+          <pre><code>[Link Text](https://example.com "Link Title")</code></pre>
+
+          <h2>URLs and Email Addresses</h2>
+          <p>Use angle brackets to make URLs or email addresses clickable:</p>
+          <pre><code>{"<https://markdown.com.cn>"}
+{"<fake@example.com>"}</code></pre>
+
+          <h2>Best Practices</h2>
+          <ul>
+            <li>Use %20 instead of spaces in URLs for compatibility</li>
+            <li>Link text should be descriptive</li>
+            <li>Test your links to ensure they work</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-links" />
+  </main>
+
+  <Footer />
+</Layout>

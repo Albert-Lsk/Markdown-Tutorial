@@ -1,0 +1,102 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="Emphasis - Markdown Tutorial" description="Learn how to create bold and italic text in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / Emphasis
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Emphasis</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Emphasize the importance of text by setting it in bold or italic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Bold</h2>
+          <p>To bold text, add two asterisks (**) or underscores (__) before and after a word or phrase:</p>
+
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">Markdown Syntax</th>
+                <th class="text-left py-2 px-3 font-medium">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>**bold text**</code></td>
+                <td class="py-2 px-3"><strong>bold text</strong></td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>__bold text__</code></td>
+                <td class="py-2 px-3"><strong>bold text</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Italic</h2>
+          <p>To italicize text, add one asterisk (*) or underscore (_) before and after a word or phrase:</p>
+
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">Markdown Syntax</th>
+                <th class="text-left py-2 px-3 font-medium">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>*italic text*</code></td>
+                <td class="py-2 px-3"><em>italic text</em></td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>_italic text_</code></td>
+                <td class="py-2 px-3"><em>italic text</em></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Bold and Italic</h2>
+          <p>To emphasize text with both bold and italic, add three asterisks or underscores:</p>
+
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">Markdown Syntax</th>
+                <th class="text-left py-2 px-3 font-medium">Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>***bold and italic***</code></td>
+                <td class="py-2 px-3"><strong><em>bold and italic</em></strong></td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono text-sm"><code>___bold and italic___</code></td>
+                <td class="py-2 px-3"><strong><em>bold and italic</em></strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-emphasis" />
+  </main>
+
+  <Footer />
+</Layout>

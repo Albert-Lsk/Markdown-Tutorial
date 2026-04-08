@@ -1,0 +1,58 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+---
+
+<Layout title="HTML Tags - Markdown Tutorial" description="Learn how to use HTML tags in Markdown." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax / HTML
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">HTML Tags</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Use HTML tags in Markdown documents to enhance formatting capabilities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>Basic Rules</h2>
+          <p>Markdown supports using HTML tags directly in documents. This is useful for formatting that Markdown doesn't natively support.</p>
+
+          <h2>Common HTML Tags</h2>
+          <ul>
+            <li><code>&lt;kbd&gt;</code> - Keyboard keys</li>
+            <li><code>&lt;mark&gt;</code> - Highlighted text</li>
+            <li><code>&lt;sub&gt;</code> - Subscript</li>
+            <li><code>&lt;sup&gt;</code> - Superscript</li>
+            <li><code>&lt;details&gt;</code> - Collapsible content</li>
+          </ul>
+
+          <h2>Examples</h2>
+          <p>Keyboard keys:</p>
+          <pre><code>Press Ctrl + C {`to copy`} or Ctrl + V {`to paste`}</code></pre>
+
+          <p>Highlighted text:</p>
+          <pre><code>{`<mark>Highlighted text</mark>`}</code></pre>
+
+          <h2>Security Considerations</h2>
+          <p>For security reasons, some HTML tags (like <code>&lt;script&gt;</code>) are disabled in most Markdown processors.</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-htmls" />
+  </main>
+
+  <Footer />
+</Layout>

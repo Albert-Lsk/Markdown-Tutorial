@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="段落语法 - Markdown 中文教程" description="学习 Markdown 段落和换行的创建方法。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 段落
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">段落</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            段落是 Markdown 中最基本的内容单位。学习如何正确创建段落和处理换行。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>创建段落</h2>
+          <p>
+            在 Markdown 中，段落由一行或多行连续文本组成，中间用空行分隔。
+            要创建新段落，只需在当前段落结束后留一个空行即可。
+          </p>
+
+          <pre><code>这是第一个段落。
+
+这是第二个段落。
+
+这是第三个段落。</code></pre>
+
+          <h2>换行规则</h2>
+          <p>
+            在 Markdown 中，换行需要特别注意：
+          </p>
+          <ul>
+            <li>在行尾添加两个空格然后回车，可以创建换行</li>
+            <li>使用 <code>&lt;br&gt;</code> 标签也可以创建换行</li>
+            <li>直接回车在大多数 Markdown 处理器中不会生效</li>
+          </ul>
+
+          <pre><code>这是第一行文字[空格][空格]
+这是第二行文字</code></pre>
+
+          <h2>最佳实践</h2>
+          <ul>
+            <li>段落之间保留空行使结构更清晰</li>
+            <li>不要依赖换行来创建列表或布局</li>
+            <li>使用适当的标题来组织内容结构</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-paragraphs" />
+  </main>
+
+  <Footer />
+</Layout>

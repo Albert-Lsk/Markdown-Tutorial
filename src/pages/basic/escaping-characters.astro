@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="转义字符语法 - Markdown 中文教程" description="学习在 Markdown 中如何转义特殊字符。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 转义字符
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">转义字符</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            如何在 Markdown 中显示原本用于格式化的特殊字符。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>如果要在 Markdown 中显示原本用于格式化的字符，请使用反斜杠 <code>\</code> 进行转义：</p>
+
+          <h2>可转义的字符</h2>
+          <table class="w-full my-4">
+            <thead>
+              <tr class="border-b border-[var(--color-border-warm)]">
+                <th class="text-left py-2 px-3 font-medium">字符</th>
+                <th class="text-left py-2 px-3 font-medium">名称</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">\</td>
+                <td class="py-2 px-3">反斜杠</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">`</td>
+                <td class="py-2 px-3">反引号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">*</td>
+                <td class="py-2 px-3">星号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">_</td>
+                <td class="py-2 px-3">下划线</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">{}</td>
+                <td class="py-2 px-3">大括号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">[]</td>
+                <td class="py-2 px-3">方括号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">()</td>
+                <td class="py-2 px-3">圆括号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">#</td>
+                <td class="py-2 px-3">井号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">+</td>
+                <td class="py-2 px-3">加号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">-</td>
+                <td class="py-2 px-3">减号/破折号</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3 font-mono">.</td>
+                <td class="py-2 px-3">句点</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 font-mono">!</td>
+                <td class="py-2 px-3">感叹号</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>示例</h2>
+          <p>显示星号而不是斜体标记：</p>
+          <pre><code>\*这不是斜体\*</code></pre>
+          <p>渲染效果：\*这不是斜体\*</p>
+
+          <p>显示井号而不是标题：</p>
+          <pre><code>\# 这不是标题</code></pre>
+          <p>渲染效果：\# 这不是标题</p>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-escaping" />
+  </main>
+
+  <Footer />
+</Layout>

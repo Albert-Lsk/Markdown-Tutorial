@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="About - Markdown Tutorial" description="Information about the Markdown Tutorial website." lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            About
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            About This Site
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Markdown Tutorial is a free resource website to help you learn the Markdown markup language.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-4">
+              Our Mission
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-4" style="line-height: 1.6;">
+              Markdown Tutorial provides high-quality, free Markdown learning resources for Chinese users. We believe good tools should be simple to learn without spending a lot of time studying documentation.
+            </p>
+            <p class="text-[var(--text-secondary)]" style="line-height: 1.6;">
+              This website uses the Claude (Anthropic) design style, showcasing a warm and professional visual experience.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-4">
+              Contribute
+            </h2>
+            <p class="text-[var(--text-secondary)] mb-4" style="line-height: 1.6;">
+              If you find any errors or have suggestions for improvement, feel free to submit an issue or pull request on GitHub.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="btn btn-primary">
+                GitHub
+              </a>
+              <a href="#" class="btn btn-secondary">
+                Submit Feedback
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-ivory);">
+      <div class="container max-w-4xl text-center">
+        <h2 class="font-serif text-3xl font-medium text-[var(--text-primary)] mb-6">
+          Tech Stack
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Astro
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Tailwind CSS
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Claude Design
+          </span>
+          <span class="px-4 py-2 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+            Giscus
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="about" />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Comments from '../components/Comments.astro';
+
+const editors = [
+  {
+    name: 'Typora',
+    desc: '简洁优雅的 Markdown 编辑器，实时预览，所见即所得。',
+    platform: 'Windows / macOS / Linux',
+    price: '免费 (Beta)',
+    link: '#'
+  },
+  {
+    name: 'VS Code',
+    desc: '强大的代码编辑器，内置 Markdown 支持，可扩展性强。',
+    platform: 'Windows / macOS / Linux',
+    price: '免费',
+    link: '#'
+  },
+  {
+    name: 'Obsidian',
+    desc: '基于本地文件夹的知识管理工具，支持双向链接。',
+    platform: 'Windows / macOS / Linux',
+    price: '免费 (本地)',
+    link: '#'
+  },
+  {
+    name: 'Markdown Here',
+    desc: '浏览器扩展，在任何文本框中使用 Markdown 编写邮件。',
+    platform: '浏览器扩展',
+    price: '免费',
+    link: '#'
+  },
+  {
+    name: 'Notion',
+    desc: '全能型笔记工具，支持 Markdown 块编辑。',
+    platform: 'Web / Windows / macOS / iOS / Android',
+    price: '免费 (个人)',
+    link: '#'
+  },
+  {
+    name: 'Cmd Markdown',
+    desc: '国内的 Markdown 编辑器，支持实时预览和云端同步。',
+    platform: 'Web / Windows / macOS',
+    price: '免费 (基础版)',
+    link: '#'
+  },
+];
+---
+
+<Layout title="Markdown 编辑器推荐" description="推荐适合不同场景的 Markdown 编辑工具。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            编辑器
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown 编辑器
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            选择一款顺手的编辑器，让写作变得更加高效愉快。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {editors.map((editor) => (
+            <div class="card hover:shadow-whisper transition-shadow">
+              <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2">
+                {editor.name}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] mb-4">
+                {editor.desc}
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-warm-sand)] text-[var(--text-secondary)]">
+                  {editor.platform}
+                </span>
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-terracotta)] text-[var(--text-inverse)]">
+                  {editor.price}
+                </span>
+              </div>
+              <a href={editor.link} class="text-sm text-[var(--color-terracotta)] hover:underline">
+                了解更多 →
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="editors" />
+  </main>
+
+  <Footer />
+</Layout>

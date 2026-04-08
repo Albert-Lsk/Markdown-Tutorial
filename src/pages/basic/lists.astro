@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="列表语法 - Markdown 中文教程" description="学习在 Markdown 中创建有序列表和无序列表。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 列表
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">列表</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            使用列表组织信息，让内容更加结构化和易读。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>无序列表</h2>
+          <p>使用 -、* 或 + 创建无序列表：</p>
+          <pre><code>- 第一项
+- 第二项
+- 第三项
+
+* 第一项
+* 第二项
+
++ 第一项
++ 第二项</code></pre>
+
+          <h2>有序列表</h2>
+          <p>使用数字加句点创建有序列表：</p>
+          <pre><code>1. 第一步
+2. 第二步
+3. 第三步</code></pre>
+
+          <h2>嵌套列表</h2>
+          <p>使用缩进创建嵌套列表：</p>
+          <pre><code>- 水果
+  - 苹果
+  - 香蕉
+- 蔬菜
+  1. 西红柿
+  2. 黄瓜</code></pre>
+
+          <h2>效果预览</h2>
+        </div>
+
+        <div class="card my-6">
+          <p class="font-medium mb-2">无序列表：</p>
+          <ul class="list-disc list-inside mb-4 space-y-1 text-[var(--text-secondary)]">
+            <li>苹果</li>
+            <li>香蕉</li>
+            <li>橙子</li>
+          </ul>
+
+          <p class="font-medium mb-2">有序列表：</p>
+          <ol class="list-decimal list-inside space-y-1 text-[var(--text-secondary)]">
+            <li>准备材料</li>
+            <li>混合配料</li>
+            <li>烘烤完成</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-lists" />
+  </main>
+
+  <Footer />
+</Layout>

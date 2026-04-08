@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="链接语法 - Markdown 中文教程" description="学习在 Markdown 中创建链接。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            基础语法 / 链接
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">链接</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            创建超链接，连接到其他页面或外部资源。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <pre><code>[链接文字](https://example.com)</code></pre>
+
+          <h2>效果预览</h2>
+          <div class="card">
+            <p class="mb-2">访问 <a href="https://markdown.com.cn" class="text-[var(--color-terracotta)] hover:underline">Markdown 中文教程</a> 学习更多。</p>
+            <p class="text-[var(--text-tertiary)] text-sm">提示：点击链接会在新标签页打开</p>
+          </div>
+
+          <h2>高级用法</h2>
+          <h3>添加标题</h3>
+          <pre><code>[链接文字](https://example.com "鼠标悬停显示的标题")</code></pre>
+
+          <h3>URL 和邮箱</h3>
+          <p>尖括号可以包裹 URL 或邮箱地址，自动转换为可点击链接：</p>
+          <pre><code>&lt;https://markdown.com.cn&gt;
+&lt;email@example.com&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic-links" />
+  </main>
+
+  <Footer />
+</Layout>

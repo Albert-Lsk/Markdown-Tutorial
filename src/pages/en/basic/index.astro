@@ -1,0 +1,99 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+
+const basicTopics = [
+  { href: '/en/basic/headings', title: 'Headings', desc: 'Create different levels of headings using # symbols' },
+  { href: '/en/basic/paragraphs', title: 'Paragraphs', desc: 'How to create paragraphs and line breaks' },
+  { href: '/en/basic/line-breaks', title: 'Line Breaks', desc: 'Line break rules in Markdown' },
+  { href: '/en/basic/emphasis', title: 'Emphasis', desc: 'Bold and italic text formatting' },
+  { href: '/en/basic/blockquotes', title: 'Blockquotes', desc: 'Create block quotations' },
+  { href: '/en/basic/lists', title: 'Lists', desc: 'Ordered and unordered lists' },
+  { href: '/en/basic/code', title: 'Code', desc: 'Inline code and code blocks' },
+  { href: '/en/basic/horizontal-rules', title: 'Horizontal Rules', desc: 'Create visual separators' },
+  { href: '/en/basic/links', title: 'Links', desc: 'Create hyperlinks' },
+  { href: '/en/basic/images', title: 'Images', desc: 'Insert and manage images' },
+  { href: '/en/basic/escaping-characters', title: 'Escaping', desc: 'How to display special characters' },
+  { href: '/en/basic/htmls', title: 'HTML Tags', desc: 'Use HTML tags in Markdown' },
+];
+---
+
+<Layout title="Basic Syntax - Markdown Tutorial" lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Basic Syntax
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown Basic Syntax
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            Markdown is a lightweight markup language with simple formatting syntax that lets you focus on content rather than layout.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                In This Section
+              </h3>
+              <nav class="space-y-1">
+                {basicTopics.map((topic) => (
+                  <a
+                    href={topic.href}
+                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                  >
+                    {topic.title}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                Don't be intimidated by "markup" or "language" — Markdown's syntax is remarkably simple. With fewer than ten common marking symbols, you can write beautifully formatted documents in no time.
+              </p>
+
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                These fewer-than-ten symbols allow you to <strong>write elegantly and immersively, focusing on content instead of formatting</strong>, achieving a state of "mind at ease, code flowing freely."
+              </p>
+
+              <h2>Get Started</h2>
+              <p>Start learning Markdown's basic syntax with headings.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              {basicTopics.slice(0, 6).map((topic) => (
+                <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                  <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                    {topic.title}
+                  </h3>
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    {topic.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="basic" />
+  </main>
+
+  <Footer />
+</Layout>

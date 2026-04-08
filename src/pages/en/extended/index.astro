@@ -1,0 +1,92 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Comments from '../../../components/Comments.astro';
+
+const extendedTopics = [
+  { href: '/en/extended/tables', title: 'Tables', desc: 'Create complex table layouts' },
+  { href: '/en/extended/fenced-code-blocks', title: 'Fenced Code Blocks', desc: 'Syntax highlighting and multi-language support' },
+  { href: '/en/extended/task-lists', title: 'Task Lists', desc: 'Create checkbox task lists' },
+  { href: '/en/extended/strikethrough', title: 'Strikethrough', desc: 'Mark deleted text with strikethrough' },
+  { href: '/en/extended/automatic-url-linking', title: 'Auto Links', desc: 'Automatic URL and email conversion' },
+  { href: '/en/extended/footnotes', title: 'Footnotes', desc: 'Add footnote annotations' },
+  { href: '/en/extended/heading-ids', title: 'Heading IDs', desc: 'Add custom IDs to headings' },
+  { href: '/en/extended/definition-lists', title: 'Definition Lists', desc: 'Create term-definition lists' },
+  { href: '/en/extended/emoji', title: 'Emoji', desc: 'Use emoji in documents' },
+];
+---
+
+<Layout title="Extended Syntax - Markdown Tutorial" lang="en">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            Extended Syntax
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
+            Markdown Extended Syntax
+          </h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            The basic syntax outlined in John Gruber's original design document was designed to handle common everyday elements for most people. But for some, it wasn't enough — that's where extended syntax comes in.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                In This Section
+              </h3>
+              <nav class="space-y-1">
+                {extendedTopics.map((topic) => (
+                  <a
+                    href={topic.href}
+                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                  >
+                    {topic.title}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <p class="text-lg text-[var(--text-secondary)] mb-6">
+                Some individuals and organizations extended the basic syntax by adding other elements like tables, code blocks, syntax highlighting, automatic URL linking, and footnotes. These can be enabled by using a lightweight markup language based on basic Markdown syntax, or by adding an extension to a compatible Markdown processor.
+              </p>
+
+              <h2>Availability</h2>
+              <p>Extended syntax is not supported by all Markdown processors. Common supporting environments include GitHub Flavored Markdown (GFM) and Markdown Here.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {extendedTopics.map((topic) => (
+                <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                  <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                    {topic.title}
+                  </h3>
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    {topic.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended" />
+  </main>
+
+  <Footer />
+</Layout>

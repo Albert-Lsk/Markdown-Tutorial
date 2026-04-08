@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Comments from '../../components/Comments.astro';
+---
+
+<Layout title="任务列表 - Markdown 中文教程" description="学习在 Markdown 中创建任务列表（复选框列表）。">
+  <Header />
+
+  <main>
+    <section class="section section-dark">
+      <div class="container">
+        <div class="max-w-3xl">
+          <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
+            扩展语法 / 任务列表
+          </p>
+          <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">任务列表</h1>
+          <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
+            创建带有复选框的任务列表，方便跟踪进度。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-4xl">
+        <div class="prose">
+          <h2>基本语法</h2>
+          <p>任务列表使用方括号表示复选框状态：</p>
+          <ul>
+            <li><code>[ ]</code> - 未完成的任务</li>
+            <li><code>[x]</code> - 已完成的任务</li>
+          </ul>
+
+          <pre><code>- [x] 购买食材
+- [ ] 做饭
+- [ ] 洗碗</code></pre>
+
+          <h2>效果预览</h2>
+        </div>
+
+        <div class="card my-6">
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <input type="checkbox" checked disabled class="w-4 h-4 rounded text-[var(--color-terracotta)]" />
+              <span class="text-[var(--text-secondary)] line-through">购买食材</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" disabled class="w-4 h-4 rounded border border-[var(--color-border-warm)]" />
+              <span class="text-[var(--text-secondary)]">做饭</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" disabled class="w-4 h-4 rounded border border-[var(--color-border-warm)]" />
+              <span class="text-[var(--text-secondary)]">洗碗</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="prose">
+          <h2>使用场景</h2>
+          <ul>
+            <li>项目管理任务跟踪</li>
+            <li>待办事项列表</li>
+            <li>旅行准备清单</li>
+            <li>购物清单</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <Comments slug="extended-task-lists" />
+  </main>
+
+  <Footer />
+</Layout>
