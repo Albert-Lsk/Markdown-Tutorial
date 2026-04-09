@@ -6,6 +6,9 @@
 
 [在线访问](https://albert-lsk.github.io/Markdown-Tutorial/)
 
+
+<img width="2970" height="1194" alt="image" src="https://github.com/user-attachments/assets/df2bf4c9-752f-41f1-8c4c-093c320095a5" />
+
 ## 这个项目现在是什么
 
 - 中文优先的 Markdown 教程站
