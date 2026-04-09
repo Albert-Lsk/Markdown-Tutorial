@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Blockquotes - Markdown Tutorial" description="Learn how to create blockquotes in Markdown." lang="en">
+<Layout
+  title="Blockquotes for Notes and Feedback - Markdown Tutorial"
+  description="Blockquotes are useful for review notes, design decisions, and sourced excerpts, not just decorative text."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Blockquotes</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Use blockquotes to present content from other sources.
+            A blockquote works well when you need to frame words that came from somewhere else: a reviewer comment, a decision note, or a quoted excerpt.
           </p>
         </div>
       </div>
@@ -27,29 +31,50 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Basic Syntax</h2>
-          <p>To create a blockquote, add a > symbol in front of a paragraph:</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.`}</code></pre>
+          <p>Add a <code>&gt;</code> character before the paragraph:</p>
+          <pre><code>{`> Ship the high-traffic pages first, then come back for the long tail.`}</code></pre>
 
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6">
+          <blockquote class="border-l-4 border-[var(--color-terracotta)] pl-4 italic text-[var(--text-secondary)]">
+            Ship the high-traffic pages first, then come back for the long tail.
+          </blockquote>
+        </div>
+
+        <div class="prose">
           <h2>Multiple Paragraphs</h2>
-          <p>Blockquotes can contain multiple paragraphs. Add a > on the blank line between paragraphs:</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+          <p>Keep the marker on blank lines too if you want to preserve multiple paragraphs:</p>
+          <pre><code>{`> This pass should fix navigation, dark mode contrast, and generic copy.
 >
-> The Witch bade her clean the pots and kettles and sweep the floor.`}</code></pre>
+> Visual polish can continue later, but the information architecture should settle first.`}</code></pre>
 
           <h2>Nested Blockquotes</h2>
-          <p>Blockquotes can be nested. Add a >> symbol for nested paragraphs:</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+          <p>Use a second <code>&gt;</code> level to show quoted feedback inside a quote:</p>
+          <pre><code>{`> Reviewer note:
 >
->> The Witch bade her clean the pots and kettles.`}</code></pre>
+>> The direction is better, but the syntax pages still read like a template site.`}</code></pre>
 
-          <h2>Blockquotes with Other Elements</h2>
-          <p>Blockquotes can contain other Markdown formatting elements:</p>
-          <pre><code>{`> #### The quarterly results look great!
+          <h2>With Other Elements</h2>
+          <p>Blockquotes can contain headings, lists, and emphasis:</p>
+          <pre><code>{`> #### Docs Updates This Week
 >
-> - Revenue was off the chart.
-> - Profits were higher than ever.
+> - Rewrite homepage copy
+> - Fix dark mode contrast
 >
-> *Everything* is going according to **plan**.`}</code></pre>
+> Next: update **individual syntax pages** with more grounded examples.`}</code></pre>
+        </div>
+
+        <div class="card my-6">
+          <blockquote class="border-l-4 border-[var(--color-terracotta)] pl-4">
+            <h4 class="text-lg font-serif font-medium mb-2">Docs Updates This Week</h4>
+            <ul class="list-disc list-inside mb-2 text-[var(--text-secondary)]">
+              <li>Rewrite homepage copy</li>
+              <li>Fix dark mode contrast</li>
+            </ul>
+            <p class="text-[var(--text-secondary)]">Next: update <strong>individual syntax pages</strong> with more grounded examples.</p>
+          </blockquote>
         </div>
       </div>
     </section>

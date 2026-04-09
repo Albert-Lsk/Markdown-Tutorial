@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="列表语法 - Markdown 中文教程" description="学习在 Markdown 中创建有序列表和无序列表。">
+<Layout
+  title="列表与步骤说明 - Markdown 中文教程"
+  description="列表适合整理任务、流程和交付项，比堆成一整段说明更容易执行。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">列表</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            使用列表组织信息，让内容更加结构化和易读。
+            列表最适合处理“这周要做什么”“发布前按什么顺序检查”这类信息。好的列表能直接变成行动，不只是排版。
           </p>
         </div>
       </div>
@@ -27,49 +30,55 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>无序列表</h2>
-          <p>使用 -、* 或 + 创建无序列表：</p>
-          <pre><code>- 第一项
-- 第二项
-- 第三项
-
-* 第一项
-* 第二项
-
-+ 第一项
-+ 第二项</code></pre>
+          <p>当顺序不重要，只需要把项目拆开列清楚时，使用无序列表：</p>
+          <pre><code>{`- 首页改写成任务导向
+- Intro 页面加入导航
+- 深色模式下修复文字对比度`}</code></pre>
 
           <h2>有序列表</h2>
-          <p>使用数字加句点创建有序列表：</p>
-          <pre><code>1. 第一步
-2. 第二步
-3. 第三步</code></pre>
+          <p>当步骤必须照顺序执行，例如本地验证到发布流程，使用有序列表：</p>
+          <pre><code>{`1. 本地预览页面
+2. 检查链接和截图
+3. 执行 npm run build
+4. 发布到 GitHub Pages`}</code></pre>
 
           <h2>嵌套列表</h2>
-          <p>使用缩进创建嵌套列表：</p>
-          <pre><code>- 水果
-  - 苹果
-  - 香蕉
-- 蔬菜
-  1. 西红柿
-  2. 黄瓜</code></pre>
+          <p>如果你需要把任务进一步拆层级，可以通过缩进组织子项：</p>
+          <pre><code>{`- 本周文档任务
+  - 重写标题与链接页
+  - 统一示例口吻
+- 发布前检查
+  1. 运行 npm run build
+  2. 确认英文入口正常`}</code></pre>
 
           <h2>效果预览</h2>
         </div>
 
         <div class="card my-6">
-          <p class="font-medium mb-2">无序列表：</p>
+          <p class="font-medium mb-2">本周文档任务：</p>
           <ul class="list-disc list-inside mb-4 space-y-1 text-[var(--text-secondary)]">
-            <li>苹果</li>
-            <li>香蕉</li>
-            <li>橙子</li>
+            <li>重写首页与入门页</li>
+            <li>替换高频语法页示例</li>
+            <li>复查语言切换与深色模式</li>
           </ul>
 
-          <p class="font-medium mb-2">有序列表：</p>
+          <p class="font-medium mb-2">发布顺序：</p>
           <ol class="list-decimal list-inside space-y-1 text-[var(--text-secondary)]">
-            <li>准备材料</li>
-            <li>混合配料</li>
-            <li>烘烤完成</li>
+            <li>本地检查视觉和链接</li>
+            <li>执行构建</li>
+            <li>确认产物路径</li>
+            <li>推送更新</li>
           </ol>
+        </div>
+
+        <div class="prose">
+          <h2>写作建议</h2>
+          <ul>
+            <li>集合类信息用无序列表，流程类信息用有序列表，不要混着写。</li>
+            <li>每一项尽量以动词或明确名词开头，避免“其他”“补充说明”这类含糊表述。</li>
+            <li>嵌套层级控制在两层左右，太深就该考虑拆成小节或表格。</li>
+            <li>如果列表已经在表达状态，后续要跟踪进度时可以升级成任务列表。</li>
+          </ul>
         </div>
       </div>
     </section>

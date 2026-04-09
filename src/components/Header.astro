@@ -1,19 +1,42 @@
 ---
+import { BASE_PATH } from '../config';
 import { translations } from '../i18n/translations';
 
-const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'zh';
+const base = BASE_PATH;
+const rawPath = Astro.url.pathname;
+const pathWithoutBase = rawPath.startsWith(base) ? rawPath.slice(base.length) : rawPath;
+const normalizedPath = (() => {
+  const path = pathWithoutBase.startsWith('/') ? pathWithoutBase : `/${pathWithoutBase}`;
+  return path.replace(/\/+$/, '') || '/';
+})();
+
+const currentLang = normalizedPath === '/en' || normalizedPath.startsWith('/en/') ? 'en' : 'zh';
 const t = translations[currentLang];
 
-const base = '/Markdown-Tutorial';
-const currentPath = Astro.url.pathname.replace(/^\/en/, '').replace(/^\/Markdown-Tutorial/, '');
+const currentPath = (() => {
+  const path = currentLang === 'en' ? normalizedPath.replace(/^\/en(?=\/|$)/, '') || '/' : normalizedPath;
+  return path === '/' ? '' : path;
+})();
+
+const buildPath = (lang: 'zh' | 'en', path = '') => {
+  if (lang === 'en') {
+    return path ? `${base}/en${path}` : `${base}/en`;
+  }
+
+  return path ? `${base}${path}` : base;
+};
+
+const currentPageHref = buildPath(currentLang, currentPath);
+const languageToggleHref = buildPath(currentLang === 'en' ? 'zh' : 'en', currentPath);
 
 const navLinks = [
-  { href: currentLang === 'en' ? `${base}/en` : base, label: t.nav.home },
-  { href: currentLang === 'en' ? `${base}/en/basic` : `${base}/basic`, label: t.nav.basic },
-  { href: currentLang === 'en' ? `${base}/en/extended` : `${base}/extended`, label: t.nav.extended },
-  { href: currentLang === 'en' ? `${base}/en/editors` : `${base}/editors`, label: t.nav.editors },
-  { href: currentLang === 'en' ? `${base}/en/tools` : `${base}/tools`, label: t.nav.tools },
-  { href: currentLang === 'en' ? `${base}/en/about` : `${base}/about`, label: t.nav.about },
+  { href: buildPath(currentLang, ''), label: t.nav.home },
+  { href: buildPath(currentLang, '/intro'), label: t.nav.intro },
+  { href: buildPath(currentLang, '/basic'), label: t.nav.basic },
+  { href: buildPath(currentLang, '/extended'), label: t.nav.extended },
+  { href: buildPath(currentLang, '/editors'), label: t.nav.editors },
+  { href: buildPath(currentLang, '/tools'), label: t.nav.tools },
+  { href: buildPath(currentLang, '/about'), label: t.nav.about },
 ];
 ---
 
@@ -21,7 +44,7 @@ const navLinks = [
   <div class="container">
     <nav class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href={currentLang === 'en' ? `${base}/en` : base} class="flex items-center gap-2 no-underline">
+      <a href={buildPath(currentLang, '')} class="flex items-center gap-2 no-underline">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="32" height="32" rx="8" fill="#c96442"/>
           <path d="M8 10h4l4 12 4-12h4" stroke="#faf9f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -36,7 +59,7 @@ const navLinks = [
           <a
             href={link.href}
             class={`nav-link text-sm font-medium ${
-              currentPath === link.href ? 'text-[var(--text-primary)]' : ''
+              currentPageHref === link.href ? 'text-[var(--text-primary)]' : ''
             }`}
           >
             {link.label}
@@ -48,7 +71,7 @@ const navLinks = [
       <div class="flex items-center gap-4">
         <!-- Language Toggle -->
         <a
-          href={currentLang === 'en' ? `${base}${currentPath}` : `${base}/en${currentPath}`}
+          href={languageToggleHref}
           class="btn btn-secondary text-sm !py-1.5 !px-3"
           title={currentLang === 'en' ? 'Switch to Chinese' : '切换到英文'}
         >
@@ -125,7 +148,7 @@ const navLinks = [
           <a
             href={link.href}
             class={`nav-link px-3 py-2 rounded-[var(--radius-comfortable)] text-sm font-medium ${
-              currentPath === link.href ? 'bg-[var(--color-warm-sand)] text-[var(--text-primary)]' : ''
+              currentPageHref === link.href ? 'bg-[var(--bg-muted)] text-[var(--text-primary)]' : ''
             }`}
           >
             {link.label}

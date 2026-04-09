@@ -3,84 +3,134 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
+import { BASE_PATH } from '../../config';
 
-const basicTopics = [
-  { href: '/basic/headings', title: '标题', desc: '使用 # 符号创建不同级别的标题' },
-  { href: '/basic/paragraphs', title: '段落', desc: '如何创建段落和换行' },
-  { href: '/basic/line-breaks', title: '换行', desc: 'Markdown 中的换行规则' },
-  { href: '/basic/emphasis', title: '强调', desc: '粗体和斜体的使用方法' },
-  { href: '/basic/blockquotes', title: '引用', desc: '创建块引用' },
-  { href: '/basic/lists', title: '列表', desc: '有序和无序列表的使用' },
-  { href: '/basic/code', title: '代码', desc: '行内代码和代码块' },
-  { href: '/basic/horizontal-rules', title: '分隔线', desc: '使用 --- 创建分隔线' },
-  { href: '/basic/links', title: '链接', desc: '创建超链接' },
-  { href: '/basic/images', title: '图片', desc: '插入和管理图片' },
-  { href: '/basic/escaping-characters', title: '转义字符', desc: '如何显示特殊字符' },
-  { href: '/basic/htmls', title: '内嵌 HTML', desc: '在 Markdown 中使用 HTML 标签' },
+const starterTrack = [
+  { href: `${BASE_PATH}/basic/headings`, title: '标题', desc: '先把内容分层，否则读者会先迷路。' },
+  { href: `${BASE_PATH}/basic/lists`, title: '列表', desc: '步骤、需求、待办和结论最常靠列表表达。' },
+  { href: `${BASE_PATH}/basic/links`, title: '链接', desc: '把上下文、资料来源和相关页面串起来。' },
+  { href: `${BASE_PATH}/basic/code`, title: '代码', desc: '命令、配置和示例最容易失真，必须用代码块保护。' },
+  { href: `${BASE_PATH}/basic/paragraphs`, title: '段落', desc: '学会拆段，比把整页写满更重要。' },
+  { href: `${BASE_PATH}/basic/emphasis`, title: '强调', desc: '只给真正关键的信息加权，而不是满篇加粗。' },
+];
+
+const supportTopics = [
+  { href: `${BASE_PATH}/basic/blockquotes`, title: '引用', desc: '用于说明、提示和引用资料时再补。' },
+  { href: `${BASE_PATH}/basic/horizontal-rules`, title: '分隔线', desc: '需要切换话题或做分区时使用即可。' },
+  { href: `${BASE_PATH}/basic/images`, title: '图片', desc: '当文档必须带截图、图例时再学。' },
+  { href: `${BASE_PATH}/basic/line-breaks`, title: '换行', desc: '理解规则就够，不必把它当成主线语法。' },
+  { href: `${BASE_PATH}/basic/escaping-characters`, title: '转义字符', desc: '写教程、展示语法本身时才会高频出现。' },
+  { href: `${BASE_PATH}/basic/htmls`, title: '内嵌 HTML', desc: '只有当 Markdown 表达不够时再引入。' },
 ];
 ---
 
-<Layout title="基础语法 - Markdown 中文教程">
+<Layout title="高频基础语法 - Markdown 实战指南">
   <Header />
 
   <main>
     <!-- Hero -->
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
-            基础语法
+            高频语法
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
-            Markdown 基本语法
+            先学这 6 个 Markdown 语法
           </h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Markdown 是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。
+            如果你的目标是把 README、Issue 和项目说明写清楚，不需要第一天就把全部语法学完。
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Content with Sidebar -->
     <section class="section">
       <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          <!-- Sidebar -->
           <aside class="lg:col-span-1">
             <div class="card sticky top-24">
               <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
-                本节内容
+                推荐顺序
               </h3>
-              <nav class="space-y-1">
-                {basicTopics.map((topic) => (
+              <nav class="space-y-2">
+                {starterTrack.map((topic, index) => (
                   <a
                     href={topic.href}
-                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                    class="flex items-start gap-3 text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
                   >
-                    {topic.title}
+                    <span class="inline-flex w-5 h-5 rounded-full bg-[var(--bg-muted)] text-[var(--text-primary)] items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                      {index + 1}
+                    </span>
+                    <span>{topic.title}</span>
                   </a>
                 ))}
               </nav>
+
+              <div class="mt-6 pt-6 border-t border-[var(--border-default)]">
+                <h4 class="font-medium text-[var(--text-primary)] mb-3">按需补充</h4>
+                <div class="space-y-2">
+                  {supportTopics.map((topic) => (
+                    <a href={topic.href} class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">
+                      {topic.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </aside>
 
-          <!-- Main Content -->
           <div class="lg:col-span-3">
             <div class="prose">
-              <p class="text-lg text-[var(--text-secondary)] mb-6">
-                千万不要被「标记」、「语言」吓到，Markdown的语法十分简单，常用的标记符号不超过十个，用于日常写作记录绰绰有余，不到半小时就能完全掌握。
-              </p>
+              <h2>如果你今天只有 30 分钟</h2>
+              <p>那就不要试图把 Markdown 学成一张完整语法表。对于 README、协作说明、项目笔记和知识库来说，真正高频的能力只有几项，先掌握它们，文档质量就会立刻提升。</p>
 
-              <p class="text-lg text-[var(--text-secondary)] mb-6">
-                就是这十个不到的标记符号，却能让人<strong>优雅地沉浸式记录，专注内容而不是纠结排版</strong>，达到「心中无尘，码字入神」的境界。
-              </p>
+              <h2>先学这 6 项</h2>
+              <ul>
+                <li><strong>标题</strong>：决定信息层级，是一篇文档的骨架。</li>
+                <li><strong>列表</strong>：适合步骤、待办、需求和要点归纳。</li>
+                <li><strong>链接</strong>：把命令、资料、页面和上下文串联起来。</li>
+                <li><strong>代码</strong>：让命令、配置和示例保持原样，不被正文污染。</li>
+                <li><strong>段落</strong>：控制阅读节奏，避免大段文字挤成一块。</li>
+                <li><strong>强调</strong>：突出真正重要的结论、风险和注意事项。</li>
+              </ul>
 
-              <h2>开始学习</h2>
-              <p>从标题开始学习 Markdown 的基本语法吧。</p>
+              <h2>剩下的什么时候再学</h2>
+              <p>图片、引用、分隔线、转义字符和内嵌 HTML 都有价值，但它们通常不是第一天的主线。等你真的遇到截图说明、语法展示或复杂布局需求时，再补这些能力更高效。</p>
+
+              <h2>一个够用的 Markdown 文档应该具备什么</h2>
+              <ul>
+                <li>清晰的标题层级，能被快速扫描。</li>
+                <li>最少但必要的列表，帮助读者抓住结构。</li>
+                <li>准确的链接和代码块，减少误解和复制错误。</li>
+                <li>少量强调，用来提示风险、重点和结论。</li>
+              </ul>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              {basicTopics.slice(0, 6).map((topic) => (
+            <div class="mt-10">
+              <h3 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-6">
+                高频语法优先学
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {starterTrack.map((topic) => (
+                  <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                    <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                      {topic.title}
+                    </h3>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                      {topic.desc}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <h3 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-6">
+                这些能力按需补充
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {supportTopics.map((topic) => (
                 <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
                   <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
                     {topic.title}
@@ -89,7 +139,8 @@ const basicTopics = [
                     {topic.desc}
                   </p>
                 </a>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

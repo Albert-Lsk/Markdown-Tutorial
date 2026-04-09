@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Headings - Markdown Tutorial" description="Learn how to create headings in Markdown." lang="en">
+<Layout
+  title="Headings for Real Docs - Markdown Tutorial"
+  description="Use headings to outline README files, guides, and release notes instead of treating them like font-size controls."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Headings</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Create different levels of headings using the # symbol. Markdown supports six heading levels.
+            Headings give a document its shape. In a README or onboarding guide, they should define the reading path before they define the look.
           </p>
         </div>
       </div>
@@ -27,55 +31,58 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Syntax</h2>
-          <p>To create a heading, add number signs (#) in front of a word or phrase:</p>
+          <p>Add number signs in front of a line. More signs mean a deeper level in the document outline:</p>
 
-          <pre><code>{`# Heading level 1
-## Heading level 2
-### Heading level 3
-#### Heading level 4
-##### Heading level 5
-###### Heading level 6`}</code></pre>
+          <pre><code>{`# Project Overview
+## Quick Start
+### Requirements
+### Local Development
+## Deployment
+### GitHub Pages
+#### Troubleshooting
+##### Cache Refresh
+###### Temporary Workaround`}</code></pre>
 
           <h2>Preview</h2>
         </div>
 
         <div class="card my-6">
-          <h1 class="text-4xl font-serif font-medium mb-4">Heading Level 1</h1>
-          <h2 class="text-3xl font-serif font-medium mb-4">Heading Level 2</h2>
-          <h3 class="text-2xl font-serif font-medium mb-4">Heading Level 3</h3>
-          <h4 class="text-xl font-serif font-medium mb-4">Heading Level 4</h4>
-          <h5 class="text-lg font-serif font-medium mb-4">Heading Level 5</h5>
-          <h6 class="text-base font-serif font-medium">Heading Level 6</h6>
+          <h1 class="text-4xl font-serif font-medium mb-4">Project Overview</h1>
+          <h2 class="text-3xl font-serif font-medium mb-4">Quick Start</h2>
+          <h3 class="text-2xl font-serif font-medium mb-4">Requirements</h3>
+          <h4 class="text-xl font-serif font-medium mb-4">Local Development</h4>
+          <h5 class="text-lg font-serif font-medium mb-4">Cache Refresh</h5>
+          <h6 class="text-base font-serif font-medium">Temporary Workaround</h6>
         </div>
 
         <div class="prose">
-          <h2>Best Practices</h2>
+          <h2>Writing Tips</h2>
           <ul>
-            <li>Each page should have only one H1 heading</li>
-            <li>Use headings in order — don't skip levels (e.g., don't go from H2 to H4)</li>
-            <li>Headings help readers quickly understand the document structure</li>
-            <li>Search engines use headings to understand page content</li>
+            <li>Most pages should have a single H1 that tells readers what this page is for.</li>
+            <li>Do not skip levels just for visual effect. TOCs, sidebars, and accessibility all depend on a stable hierarchy.</li>
+            <li>Use headings that promise useful content, such as “Deployment” or “Known Issues,” instead of vague labels like “More.”</li>
+            <li>If a section does not fit your current outline, rethink the structure before adding more emphasis to body text.</li>
           </ul>
 
           <h2>Alternative Syntax</h2>
-          <p>You can also create H1 and H2 headings using underline syntax:</p>
+          <p>You can also create H1 and H2 headings with underlines. It still appears in older Markdown files, but <code>#</code> syntax is clearer for long-lived docs.</p>
         </div>
 
         <div class="card my-6">
-          <p class="text-lg font-serif mb-2">Heading Level 1 with equals</p>
+          <p class="text-lg font-serif mb-2">Release Notes</p>
           <hr class="border-[var(--color-border-warm)] mb-4" />
-          <p class="text-base font-serif mb-2">Heading Level 2 with hyphens</p>
+          <p class="text-base font-serif mb-2">Known Issues</p>
           <hr class="border-[var(--color-border-warm)]" />
         </div>
 
         <div class="prose">
-          <pre><code>{`Heading Level 1
+          <pre><code>{`Release Notes
 ===
 
-Heading Level 2
+Known Issues
 ---`}</code></pre>
 
-          <p>While this syntax works in some Markdown processors, we recommend using # syntax as it's more intuitive and widely supported.</p>
+          <p>For maintained docs, <code>#</code> headings are usually the better default because they are easier to scan and easier to turn into anchors.</p>
         </div>
       </div>
     </section>

@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Images - Markdown Tutorial" description="Learn how to insert images in Markdown." lang="en">
+<Layout
+  title="Images, Screenshots, and Alt Text - Markdown Tutorial"
+  description="Screenshots and diagrams help when they carry real information and come with useful alt text."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Images</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Insert images in documents to make content more vivid and intuitive.
+            Images are most useful in docs when they show a UI state, a flow, or a diagram that text alone would make harder to follow.
           </p>
         </div>
       </div>
@@ -27,23 +31,23 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Basic Syntax</h2>
-          <p>Images use an exclamation mark followed by alt text in brackets and the image URL in parentheses:</p>
-          <pre><code>![Alt Text](image-url)</code></pre>
+          <pre><code>![Alt text](image-url)</code></pre>
 
-          <p>Alt text (alternative text) describes the image and improves accessibility when the image can't be displayed.</p>
+          <p>Write alt text that explains what the image contributes. “Homepage in dark mode” is far more useful than “image 1”.</p>
 
           <h2>Example</h2>
-          <pre><code>![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)</code></pre>
+          <pre><code>![Homepage in dark mode with the navigation visible](./images/home-dark-mode.png)</code></pre>
 
           <h2>Image Links</h2>
-          <p>To create a clickable image that links to a URL, wrap the image syntax in brackets:</p>
-          <pre><code>{`[![Alt Text](image-url)](link-url)`}</code></pre>
+          <p>If the image should open a source file, full-size asset, or repo page, wrap it in a standard link:</p>
+          <pre><code>{`[![Deployment flow diagram](./images/deploy-flow.png)](https://github.com/Albert-Lsk/Markdown-Tutorial)`}</code></pre>
 
           <h2>Best Practices</h2>
           <ul>
-            <li>Always add meaningful alt text</li>
-            <li>Use relative paths for local images</li>
-            <li>Be mindful of image copyright</li>
+            <li>Prefer relative paths for repo assets so the document stays portable.</li>
+            <li>Crop screenshots so the focal point is obvious.</li>
+            <li>Use filenames that explain intent, such as <code>home-dark-mode.png</code>.</li>
+            <li>If an image needs too much explanation, add a short sentence before or after it instead of piling on more visuals.</li>
           </ul>
         </div>
       </div>

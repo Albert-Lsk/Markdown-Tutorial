@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="引用语法 - Markdown 中文教程" description="学习在 Markdown 中创建块引用。">
+<Layout
+  title="引用与批注 - Markdown 中文教程"
+  description="引用块适合放评审意见、设计决策和外部摘录，而不是单纯做装饰。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">引用</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            使用块引用来呈现来自其他来源的内容。
+            引用块更像“把一段来自别处的话框出来”。在会议纪要、PR 讨论和设计说明里，它很适合承接反馈、决策和摘录。
           </p>
         </div>
       </div>
@@ -27,48 +30,48 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <p>要创建块引用，请在段落前添加一个 <code>&gt;</code> 符号：</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.`}</code></pre>
-          <p>渲染效果如下所示：</p>
+          <p>在段落前添加一个 <code>&gt;</code>，就能把它标记成引用：</p>
+          <pre><code>{`> 这个版本先把高频页面做扎实，再补齐长尾语法页。`}</code></pre>
+          <p>渲染效果如下：</p>
         </div>
 
         <div class="card my-6">
           <blockquote class="border-l-4 border-[var(--color-terracotta)] pl-4 italic text-[var(--text-secondary)]">
-            Dorothy followed her through many of the beautiful rooms in her castle.
+            这个版本先把高频页面做扎实，再补齐长尾语法页。
           </blockquote>
         </div>
 
         <div class="prose">
-          <h2>多个段落的块引用</h2>
-          <p>块引用可以包含多个段落。为段落之间的空白行添加一个 <code>&gt;</code> 符号：</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+          <h2>多个段落的引用</h2>
+          <p>如果你要保留多段上下文，空行也要带上 <code>&gt;</code>：</p>
+          <pre><code>{`> 这次改版先解决导航、暗色模式和内容同质化问题。
 >
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.`}</code></pre>
+> 视觉细节可以下一轮统一调整，但信息结构要先稳定下来。`}</code></pre>
 
-          <h2>嵌套块引用</h2>
-          <p>块引用可以嵌套。在要嵌套的段落前添加一个 <code>&gt;&gt;</code> 符号：</p>
-          <pre><code>{`> Dorothy followed her through many of the beautiful rooms in her castle.
+          <h2>嵌套引用</h2>
+          <p>引用里再嵌一层引用，适合表现“原话里的补充意见”：</p>
+          <pre><code>{`> 评审意见：
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.`}</code></pre>
+>> 首页方向没问题，但单独语法页的例子还是太像模板站。`}</code></pre>
 
-          <h2>带有其它元素的块引用</h2>
-          <p>块引用可以包含其他 Markdown 格式的元素：</p>
-          <pre><code>{`> #### The quarterly results look great!
+          <h2>与其他元素组合</h2>
+          <p>引用里同样可以放标题、列表和强调文本：</p>
+          <pre><code>{`> #### 本周文档调整
 >
-> - Revenue was off the chart.
-> - Profits were higher than ever.
+> - 重写首页文案
+> - 修复暗色模式对比度
 >
-> *Everything* is going according to **plan**.`}</code></pre>
+> 下一步处理 **单独语法页** 的示例与口吻。`}</code></pre>
         </div>
 
         <div class="card my-6">
           <blockquote class="border-l-4 border-[var(--color-terracotta)] pl-4">
-            <h4 class="text-lg font-serif font-medium mb-2">The quarterly results look great!</h4>
+            <h4 class="text-lg font-serif font-medium mb-2">本周文档调整</h4>
             <ul class="list-disc list-inside mb-2 text-[var(--text-secondary)]">
-              <li>Revenue was off the chart.</li>
-              <li>Profits were higher than ever.</li>
+              <li>重写首页文案</li>
+              <li>修复暗色模式对比度</li>
             </ul>
-            <p class="text-[var(--text-secondary)] italic"><em>Everything</em> is going according to <strong>plan</strong>.</p>
+            <p class="text-[var(--text-secondary)]">下一步处理 <strong>单独语法页</strong> 的示例与口吻。</p>
           </blockquote>
         </div>
       </div>

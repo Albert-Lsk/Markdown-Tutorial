@@ -4,79 +4,126 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import Comments from '../../components/Comments.astro';
+import { BASE_PATH } from '../../config';
 
-const features = [
+const useCases = [
   {
-    title: 'Simple to Learn',
-    description: 'Use intuitive symbols to mark text formatting. Master the basics in just half an hour.',
+    title: 'Write Better READMEs',
+    description: 'Explain setup steps, commands, folder structure, and common questions in a format people can scan quickly.',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>'
   },
   {
-    title: 'Rich Formatting',
-    description: 'Support for headings, lists, code blocks, tables, links, images and more.',
+    title: 'Capture Team Knowledge',
+    description: 'Meeting notes, debugging logs, design drafts, and SOPs all work well as long-lived Markdown files.',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>'
   },
   {
-    title: 'Portable Plain Text',
-    description: 'Open .md files in almost any application. Cross-platform compatibility.',
+    title: 'Collaborate on GitHub',
+    description: 'Issues, pull requests, discussions, and wikis are already Markdown-first surfaces.',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>'
   },
   {
-    title: 'Widely Supported',
-    description: 'Supported by GitHub, StackOverflow, CSDN, Notion and many other platforms.',
+    title: 'Publish Documentation Sites',
+    description: 'The same Markdown content can flow into Astro, VitePress, or GitHub Pages when you are ready to publish.',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-terracotta)]"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>'
   }
 ];
+
+const workflowSteps = [
+  {
+    title: 'Start with a README people can actually use',
+    description: 'State the problem, installation steps, and run commands before worrying about every possible syntax feature.',
+  },
+  {
+    title: 'Learn the high-frequency basics first',
+    description: 'Headings, lists, links, code, emphasis, and paragraphs already cover most real Markdown writing.',
+  },
+  {
+    title: 'Add extended syntax when the platform demands it',
+    description: 'Tables, task lists, footnotes, and auto-links are useful, but they should follow actual needs.',
+  },
+  {
+    title: 'Choose tools and publishing last',
+    description: 'Build stable writing habits first, then decide on VS Code, Obsidian, Astro, or GitHub Pages.',
+  },
+];
+
+const learningPaths = [
+  {
+    href: `${BASE_PATH}/en/intro`,
+    title: '3-Minute Getting Started',
+    description: 'Understand what problem Markdown solves in real day-to-day work.',
+    cta: 'Open intro',
+  },
+  {
+    href: `${BASE_PATH}/en/basic`,
+    title: 'High-Frequency Basics',
+    description: 'Learn the six syntax features you will reach for most often.',
+    cta: 'View basic syntax',
+  },
+  {
+    href: `${BASE_PATH}/en/extended`,
+    title: 'Extended Syntax by Need',
+    description: 'Pick up tables, task lists, and other extensions when the workflow requires them.',
+    cta: 'View extended syntax',
+  },
+  {
+    href: `${BASE_PATH}/en/editors`,
+    title: 'Editors and Tooling',
+    description: 'Choose an editor, preview flow, and publishing setup after your writing habits are stable.',
+    cta: 'Choose editors',
+  },
+];
 ---
 
-<Layout title="Markdown Tutorial - Complete Guide" description="Learn Markdown syntax with this comprehensive tutorial. Focus on content, not formatting." lang="en">
+<Layout title="Markdown in Real Workflows - README, Docs, and GitHub Pages" description="Learn Markdown through real workflows: READMEs, team notes, GitHub collaboration, and documentation sites." lang="en">
   <Header />
 
   <main>
     <section class="section">
-      <div class="container text-center max-w-4xl mx-auto">
+      <div class="container text-center max-w-5xl mx-auto">
         <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
-          Markdown Tutorial
+          Markdown for Real Workflows
         </p>
 
         <h1 class="font-serif-display text-[var(--text-primary)] mb-6">
-          The Elegant<br />Markup Language
+          Use Markdown<br />Where Work Actually Happens
         </h1>
 
         <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-8" style="line-height: 1.6;">
-          Markdown is a lightweight markup language that allows you to write formatted documents using plain text that is easy to read and write.
-          <strong>Focus on content, not formatting</strong>.
+          This is not another abstract definition page. It is a practical route for using Markdown in READMEs, team notes, issues, pull requests, blogs, and documentation sites.
+          <strong>Learn the format through the places where it actually matters.</strong>
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/Markdown-Tutorial/en/intro" class="btn btn-primary text-lg !px-8 !py-3">
-            Start Learning
+          <a href={`${BASE_PATH}/en/intro`} class="btn btn-primary text-lg !px-8 !py-3">
+            Start with the 3-minute intro
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
-          <a href="/Markdown-Tutorial/en/editor" class="btn btn-secondary text-lg !px-8 !py-3">
-            Try Editor
+          <a href={`${BASE_PATH}/en/editors`} class="btn btn-secondary text-lg !px-8 !py-3">
+            Browse editors
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="section section-tint">
       <div class="container">
         <div class="text-center mb-12">
           <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-inverse)] mb-4">
-            Why Markdown?
+            Where Markdown earns its keep
           </h2>
           <p class="text-[var(--text-on-dark)] opacity-80 max-w-2xl mx-auto">
-            Markdown makes writing simple and focused, freeing you from tedious formatting.
+            Markdown becomes valuable when content has to be reviewed, versioned, reused, and published.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature) => (
-            <FeatureCard {...feature} />
+          {useCases.map((useCase) => (
+            <FeatureCard {...useCase} />
           ))}
         </div>
       </div>
@@ -87,41 +134,29 @@ const features = [
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-primary)] mb-6">
-              Get Started Quickly
+              A learning path closer to real work
             </h2>
             <p class="text-[var(--text-secondary)] mb-6" style="line-height: 1.6;">
-              Start learning Markdown by following the getting started guide. This guide is written for everyone, even beginners.
+              If your goal is to write clearer docs instead of memorizing a giant syntax sheet, this order will get you there faster.
             </p>
 
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">1</span>
-                <div>
-                  <h4 class="font-medium text-[var(--text-primary)] mb-1">Learn Basic Syntax</h4>
-                  <p class="text-sm text-[var(--text-secondary)]">Master headings, paragraphs, lists, links and more.</p>
+            <div class="space-y-5">
+              {workflowSteps.map((step, index) => (
+                <div class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h4 class="font-medium text-[var(--text-primary)] mb-1">{step.title}</h4>
+                    <p class="text-sm text-[var(--text-secondary)]">{step.description}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">2</span>
-                <div>
-                  <h4 class="font-medium text-[var(--text-primary)] mb-1">Learn Extended Syntax</h4>
-                  <p class="text-sm text-[var(--text-secondary)]">Create tables, code blocks, task lists and more.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <span class="flex-shrink-0 w-8 h-8 rounded-[var(--radius-comfortable)] bg-[var(--color-terracotta)] text-[var(--text-inverse)] flex items-center justify-center font-medium text-sm">3</span>
-                <div>
-                  <h4 class="font-medium text-[var(--text-primary)] mb-1">Choose Your Editor</h4>
-                  <p class="text-sm text-[var(--text-secondary)]">Pick the Markdown editor that suits you best.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div class="mt-8">
-              <a href="/Markdown-Tutorial/en/intro" class="btn btn-primary">
-                View Full Tutorial
+              <a href={`${BASE_PATH}/en/basic`} class="btn btn-primary">
+                Learn the high-frequency basics
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -136,55 +171,43 @@ const features = [
               <div class="w-3 h-3 rounded-full bg-[#fbbf24]"></div>
               <div class="w-3 h-3 rounded-full bg-[#22c55e]"></div>
             </div>
-            <pre class="font-mono text-sm overflow-x-auto"><code><span class="text-[var(--color-stone-gray)]"># Heading 1</span>
-<span class="text-[var(--color-stone-gray)]">## Heading 2</span>
+            <pre class="font-mono text-sm overflow-x-auto"><code><span class="text-[var(--color-stone-gray)]"># Markdown-Tutorial</span>
 
-<span class="text-[var(--color-terracotta)]">**This is bold**</span>
+<span class="text-[var(--color-terracotta)]">## This week's focus</span>
+<span class="text-[var(--color-terracotta)]">-</span> Clarify install steps
+<span class="text-[var(--color-terracotta)]">-</span> Add contribution notes
+<span class="text-[var(--color-terracotta)]">-</span> Track known issues
 
-<span class="text-[var(--color-terracotta)]">-</span> First item
-<span class="text-[var(--color-terracotta)]">-</span> Second item
+<span class="text-[var(--color-terracotta)]">## Shipping path</span>
+README -&gt; Docs -&gt; GitHub Pages
 
-<span class="text-[var(--color-terracotta)]">[Link text](https://example.com)</span></code></pre>
+<span class="text-[var(--color-terracotta)]">[Visit Website](https://albert-lsk.github.io/Markdown-Tutorial/en/)</span></code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="background-color: var(--color-ivory);">
+    <section class="section section-tint">
       <div class="container">
         <div class="text-center mb-12">
           <h2 class="font-serif text-3xl md:text-4xl font-medium text-[var(--text-primary)] mb-4">
-            Documentation
+            Pick pages by job, not by abstract category
           </h2>
           <p class="text-[var(--text-secondary)] max-w-2xl mx-auto">
-            A systematic learning path from basics to advanced, master Markdown step by step.
+            Different pages serve different phases: establish context first, then learn the high-frequency syntax, then add extensions and tooling.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/Markdown-Tutorial/en/intro" class="card group hover:border-[var(--color-terracotta)] transition-colors">
-            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
-              Getting Started
-            </h3>
-            <p class="text-sm text-[var(--text-secondary)] mb-4">Learn what Markdown is and why you should use it.</p>
-            <span class="text-sm text-[var(--color-terracotta)] font-medium">Start Learning →</span>
-          </a>
-
-          <a href="/Markdown-Tutorial/en/basic" class="card group hover:border-[var(--color-terracotta)] transition-colors">
-            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
-              Basic Syntax
-            </h3>
-            <p class="text-sm text-[var(--text-secondary)] mb-4">Headings, paragraphs, lists, links and more core elements.</p>
-            <span class="text-sm text-[var(--color-terracotta)] font-medium">Start Learning →</span>
-          </a>
-
-          <a href="/Markdown-Tutorial/en/extended" class="card group hover:border-[var(--color-terracotta)] transition-colors">
-            <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
-              Extended Syntax
-            </h3>
-            <p class="text-sm text-[var(--text-secondary)] mb-4">Tables, code blocks, task lists and advanced features.</p>
-            <span class="text-sm text-[var(--color-terracotta)] font-medium">Start Learning →</span>
-          </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {learningPaths.map((path) => (
+            <a href={path.href} class="card group hover:border-[var(--color-terracotta)] transition-colors">
+              <h3 class="font-serif text-xl font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                {path.title}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] mb-4">{path.description}</p>
+              <span class="text-sm text-[var(--color-terracotta)] font-medium">{path.cta} →</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

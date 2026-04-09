@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Code - Markdown Tutorial" description="Learn how to use inline code and code blocks in Markdown." lang="en">
+<Layout
+  title="Code, Commands, and Paths - Markdown Tutorial"
+  description="Use Markdown code syntax for commands, paths, config keys, and short logs that readers may need to copy exactly."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Code</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Use code syntax to display programming code and technical content.
+            Code formatting is most useful when it removes ambiguity. Commands, file paths, and config names should look different from ordinary prose.
           </p>
         </div>
       </div>
@@ -27,21 +31,44 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Inline Code</h2>
-          <p>To represent a word or phrase as code, wrap it in backticks (`):</p>
-          <pre><code>At the command prompt, type {`nano`}.</code></pre>
+          <p>Use inline code for short commands, filenames, and exact values:</p>
+          <pre><code>{`Run \`npm run build\` before publishing. The output goes to \`dist/\`.`}</code></pre>
 
+          <h2>Indented Code Blocks</h2>
+          <p>Basic Markdown supports code blocks by indenting each line with four spaces:</p>
+          <pre><code>{`    npm install
+    npm run dev
+    npm run build`}</code></pre>
+
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6">
+          <p class="text-sm text-[var(--text-secondary)] mb-4">
+            A common docs sentence: run
+            <code class="bg-[var(--bg-code-inline)] text-[var(--text-primary)] px-1 rounded">npm run build</code>
+            and then deploy the contents of
+            <code class="bg-[var(--bg-code-inline)] text-[var(--text-primary)] px-1 rounded">dist/</code>
+            .
+          </p>
+
+          <pre class="bg-[var(--color-deep-dark)] text-[var(--color-warm-silver)] p-4 rounded-[var(--radius-comfortable)] overflow-x-auto font-mono text-sm">{`npm install
+npm run dev
+npm run build`}</pre>
+        </div>
+
+        <div class="prose">
           <h2>Escaping Backticks</h2>
-          <p>If your code contains backticks, wrap the phrase in double backticks:</p>
-          <pre><code>{"``Use `code` in your Markdown file.``"}</code></pre>
+          <p>If the content itself contains backticks, wrap it with double backticks:</p>
+          <pre><code>{'``Use `astro build` when you mean the command itself``'}</code></pre>
 
-          <h2>Code Blocks</h2>
-          <p>To create a code block, indent each line by at least four spaces or one tab:</p>
-          <pre><code>{`    <html>
-        <head>
-        </head>
-    </html>`}</code></pre>
-
-          <p>Note: For code blocks without indentation, use fenced code blocks.</p>
+          <h2>Writing Tips</h2>
+          <ul>
+            <li>Only format text as code when readers might need to copy it exactly.</li>
+            <li>Keep examples short and runnable. Placeholder code is rarely the most helpful example.</li>
+            <li>When showing output, add a sentence of context so readers know where the snippet comes from.</li>
+            <li>If you need syntax highlighting, move up to fenced code blocks in extended Markdown.</li>
+          </ul>
         </div>
       </div>
     </section>

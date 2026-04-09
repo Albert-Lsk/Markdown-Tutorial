@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="图片语法 - Markdown 中文教程" description="学习在 Markdown 中插入图片。">
+<Layout
+  title="图片与截图说明 - Markdown 中文教程"
+  description="截图、流程图和界面示意图能让文档更清楚，但前提是图片本身和 alt 文案都说得明白。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">图片</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            在文档中插入图片，让内容更加生动直观。
+            图片通常用于放界面截图、流程图和示意图。比起“见下图”这种空话，更重要的是图片文件名、替代文字和上下文是否真正有信息量。
           </p>
         </div>
       </div>
@@ -29,20 +32,21 @@ import Comments from '../../components/Comments.astro';
           <h2>基本语法</h2>
           <pre><code>![替代文字](图片地址)</code></pre>
 
-          <p>替代文字（alt text）用于图片无法显示时的描述，同时也能提高可访问性。</p>
+          <p>替代文字（alt text）要描述这张图想传达什么，例如“深色模式下的首页导航截图”，而不是简单写成“图片 1”。</p>
 
           <h2>示例</h2>
-          <pre><code>![Markdown 标志](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)</code></pre>
+          <pre><code>![深色模式下的首页截图](./images/home-dark-mode.png)</code></pre>
 
           <h2>带链接的图片</h2>
-          <p>将图片包裹在链接中：</p>
-          <pre><code>[![替代文字](图片地址)](链接地址)</code></pre>
+          <p>如果你想让图片点击后跳到原图、仓库或详细说明页，可以把图片语法放进链接里：</p>
+          <pre><code>{`[![部署流程示意图](./images/deploy-flow.png)](https://github.com/Albert-Lsk/Markdown-Tutorial)`}</code></pre>
 
           <h2>最佳实践</h2>
           <ul>
-            <li>始终添加有意义的替代文字</li>
-            <li>使用相对路径引用本地图片</li>
-            <li>注意图片的版权问题</li>
+            <li>优先使用相对路径引用仓库里的资源，避免外链失效导致文档“只剩替代文字”。</li>
+            <li>截图类图片尽量裁掉无关区域，读者打开后应该能直接看到重点。</li>
+            <li>文件名也写清楚用途，例如 <code>home-dark-mode.png</code>，比 <code>image-1.png</code> 更易维护。</li>
+            <li>如果一张图无法独立说明问题，补一句上下文，而不是堆更多装饰性图片。</li>
           </ul>
         </div>
       </div>

@@ -3,6 +3,7 @@ export const translations = {
     // Navigation
     nav: {
       home: '首页',
+      intro: '入门',
       basic: '基础语法',
       extended: '扩展语法',
       editors: '编辑器',
@@ -36,6 +37,7 @@ export const translations = {
     // Navigation
     nav: {
       home: 'Home',
+      intro: 'Getting Started',
       basic: 'Basic Syntax',
       extended: 'Extended Syntax',
       editors: 'Editors',

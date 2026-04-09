@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="围栏代码块 - Markdown 中文教程" description="学习在 Markdown 中使用围栏代码块实现语法高亮。">
+<Layout
+  title="围栏代码块与高亮 - Markdown 中文教程"
+  description="围栏代码块适合放可直接复制的命令、配置和示例片段，最好顺手标上语言。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">围栏代码块</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            使用围栏代码块创建带有语法高亮的代码区域。
+            当你需要放一段真正会被别人复制执行的命令、配置或示例代码时，围栏代码块比缩进块更清楚，也更容易附带语法高亮。
           </p>
         </div>
       </div>
@@ -27,33 +30,39 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <p>围栏代码块以三个反引号（<code>```</code>）开头，后面可跟语言标识符来指定语法高亮：</p>
+          <p>使用三个反引号包裹代码块，后面可以直接写语言名：</p>
 
-          <pre><code>{'```javascript'}
-function hello() {'{'}
-  console.log("Hello, World!");
-{'}'}
+          <pre><code>{'```bash'}
+npm install
+npm run dev
+npm run build
 {'```'}</code></pre>
 
-          <h2>支持的常用语言</h2>
+          <h2>为什么要写语言标识</h2>
+          <p>语言标识会影响高亮和读者理解。写命令用 <code>bash</code>，配置常用 <code>yaml</code> 或 <code>json</code>，示例 Markdown 可以写成 <code>md</code>。</p>
+
           <ul>
-            <li><code>javascript</code> 或 <code>js</code> - JavaScript</li>
-            <li><code>typescript</code> 或 <code>ts</code> - TypeScript</li>
-            <li><code>python</code> 或 <code>py</code> - Python</li>
-            <li><code>html</code> - HTML</li>
-            <li><code>css</code> - CSS</li>
-            <li><code>json</code> - JSON</li>
-            <li><code>bash</code> 或 <code>shell</code> - Bash/Shell</li>
-            <li><code>sql</code> - SQL</li>
-            <li><code>yaml</code> 或 <code>yml</code> - YAML</li>
-            <li><code>markdown</code> 或 <code>md</code> - Markdown</li>
+            <li><code>bash</code> 适合命令行步骤和部署脚本</li>
+            <li><code>yaml</code> 适合 GitHub Actions、站点配置等片段</li>
+            <li><code>json</code> 适合接口返回或配置对象</li>
+            <li><code>md</code> 适合示范 Markdown 本身</li>
           </ul>
 
           <h2>无语言标识符</h2>
-          <p>如果不指定语言，代码块将不会有语法高亮：</p>
+          <p>如果你只是想保留原始文本格式，也可以省略语言名：</p>
           <pre><code>{'```'}
-这是一段普通文本代码
+dist/
+  index.html
+  assets/
+  search-index.json
 {'```'}</code></pre>
+
+          <h2>写作建议</h2>
+          <ul>
+            <li>示例最好能直接复制执行，少放“Hello, World!”这类跟场景没关系的占位代码。</li>
+            <li>如果一段命令有前置条件，代码块上面先写清“在哪执行”“执行后会发生什么”。</li>
+            <li>长代码块尽量只保留当前页面要讲的重点，避免把读者带进无关细节。</li>
+          </ul>
         </div>
       </div>
     </section>

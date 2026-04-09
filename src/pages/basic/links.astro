@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="链接语法 - Markdown 中文教程" description="学习在 Markdown 中创建链接。">
+<Layout
+  title="链接与跳转 - Markdown 中文教程"
+  description="链接决定你的 README、导航页和发布说明是不是一份真正能走通的文档。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">链接</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            创建超链接，连接到其他页面或外部资源。
+            链接不是“点这里”按钮的语法版。它应该把读者带到下一步动作，例如入门页、部署文档、仓库地址或反馈入口。
           </p>
         </div>
       </div>
@@ -27,22 +30,41 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <pre><code>[链接文字](https://example.com)</code></pre>
+          <p>链接文本放在方括号里，地址放在圆括号里：</p>
+          <pre><code>[部署说明](https://vite.dev/guide/static-deploy.html)</code></pre>
 
           <h2>效果预览</h2>
-          <div class="card">
-            <p class="mb-2">访问 <a href="https://markdown.com.cn" class="text-[var(--color-terracotta)] hover:underline">Markdown 中文教程</a> 学习更多。</p>
-            <p class="text-[var(--text-tertiary)] text-sm">提示：点击链接会在新标签页打开</p>
-          </div>
+        </div>
 
-          <h2>高级用法</h2>
-          <h3>添加标题</h3>
-          <pre><code>[链接文字](https://example.com "鼠标悬停显示的标题")</code></pre>
+        <div class="card my-6 space-y-3">
+          <p>
+            先看 <a href="/Markdown-Tutorial/intro" class="text-[var(--color-terracotta)] hover:underline">入门页</a>，确认这套站点是怎么组织内容的。
+          </p>
+          <p>
+            准备上线时，对照 <a href="https://vite.dev/guide/static-deploy.html" class="text-[var(--color-terracotta)] hover:underline">Vite 静态部署文档</a> 检查产物和路径配置。
+          </p>
+          <p>
+            如果你想补充示例或修正文案，直接发到 <a href="mailto:docs@example.dev" class="text-[var(--color-terracotta)] hover:underline">docs@example.dev</a>。
+          </p>
+        </div>
 
-          <h3>URL 和邮箱</h3>
-          <p>尖括号可以包裹 URL 或邮箱地址，自动转换为可点击链接：</p>
-          <pre><code>&lt;https://markdown.com.cn&gt;
-&lt;email@example.com&gt;</code></pre>
+        <div class="prose">
+          <h2>给链接补充标题</h2>
+          <p>当你需要在悬停时解释链接用途，可以附带一个可选标题：</p>
+          <pre><code>[发布记录](https://github.com/Albert-Lsk/Markdown-Tutorial "查看站点最近的内容更新")</code></pre>
+
+          <h2>自动链接与邮箱</h2>
+          <p>如果重点就是地址本身，可以使用尖括号包裹 URL 或邮箱：</p>
+          <pre><code>{`<https://albert-lsk.github.io/Markdown-Tutorial/>
+<docs@example.dev>`}</code></pre>
+
+          <h2>写作建议</h2>
+          <ul>
+            <li>链接文字尽量说清目的，例如“部署说明”“更新记录”，少用“点击这里”。</li>
+            <li>站内文档优先用能表达去向的名称，方便读者扫读，也方便后续迁移结构。</li>
+            <li>只有在地址本身有意义时才直接贴裸 URL，例如仓库、镜像或回调地址。</li>
+            <li>发版前最好把关键入口点一遍，尤其是中英文切换和深层页面跳转。</li>
+          </ul>
         </div>
       </div>
     </section>

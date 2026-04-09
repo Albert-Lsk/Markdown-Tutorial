@@ -1,45 +1,82 @@
 ---
+import { BASE_PATH, GISCUS_CONFIG } from '../config';
+
 interface Props {
   slug: string;
 }
 
 const { slug } = Astro.props;
+const rawPath = Astro.url.pathname;
+const pathWithoutBase = rawPath.startsWith(BASE_PATH) ? rawPath.slice(BASE_PATH.length) : rawPath;
+const normalizedPath = (() => {
+  const path = pathWithoutBase.startsWith('/') ? pathWithoutBase : `/${pathWithoutBase}`;
+  return path.replace(/\/+$/, '') || '/';
+})();
+const currentLang = normalizedPath === '/en' || normalizedPath.startsWith('/en/') ? 'en' : 'zh';
+const commentsEnabled =
+  GISCUS_CONFIG.enabled &&
+  GISCUS_CONFIG.repo &&
+  GISCUS_CONFIG.repoId &&
+  GISCUS_CONFIG.category &&
+  GISCUS_CONFIG.categoryId;
+const copy =
+  currentLang === 'en'
+    ? {
+        title: 'Comments',
+        description: 'Comments are currently unavailable.',
+        hint: 'Enable GitHub Discussions for this repository and complete the giscus configuration to turn comments on.',
+        loginHint: 'When enabled, visitors can sign in with GitHub to join the discussion.',
+        lang: 'en',
+      }
+    : {
+        title: '评论',
+        description: '评论区暂未开放。',
+        hint: '需要先为这个仓库启用 GitHub Discussions，并完成 giscus 配置后，评论功能才可用。',
+        loginHint: '启用后，访客可以使用 GitHub 账号登录并参与讨论。',
+        lang: 'zh-CN',
+      };
 ---
 
 <section class="section" id="comments">
   <div class="container">
-    <h2 class="font-serif text-3xl font-medium mb-6 text-[var(--text-primary)]">评论</h2>
+    <h2 class="font-serif text-3xl font-medium mb-6 text-[var(--text-primary)]">{copy.title}</h2>
     <div class="card">
-      <p class="text-[var(--text-secondary)] mb-4">
-        本网站使用 <a href="https://giscus.app" target="_blank" rel="noopener" class="text-[var(--color-terracotta)] hover:underline">Giscus</a> 评论系统，基于 GitHub Discussions。
-      </p>
-      <p class="text-[var(--text-secondary)] text-sm mb-4">
-        使用 GitHub 账号登录即可发表评论。
-      </p>
-
-      <!-- Giscus container -->
-      <div class="giscus" id="giscus-container"></div>
+      {commentsEnabled ? (
+        <>
+          <p class="text-[var(--text-secondary)] mb-4">
+            {currentLang === 'en' ? 'This site uses ' : '本网站使用 '}
+            <a href="https://giscus.app" target="_blank" rel="noopener" class="text-[var(--color-terracotta)] hover:underline">Giscus</a>
+            {currentLang === 'en' ? ', a comment system powered by GitHub Discussions.' : ' 评论系统，基于 GitHub Discussions。'}
+          </p>
+          <p class="text-[var(--text-secondary)] text-sm mb-4">{copy.loginHint}</p>
+          <div class="giscus" id={`giscus-container-${slug}`}></div>
+          <script
+            src="https://giscus.app/client.js"
+            data-repo={GISCUS_CONFIG.repo}
+            data-repo-id={GISCUS_CONFIG.repoId}
+            data-category={GISCUS_CONFIG.category}
+            data-category-id={GISCUS_CONFIG.categoryId}
+            data-mapping={GISCUS_CONFIG.mapping}
+            data-strict={GISCUS_CONFIG.strict}
+            data-reactions-enabled={GISCUS_CONFIG.reactionsEnabled}
+            data-emit-metadata={GISCUS_CONFIG.emitMetadata}
+            data-input-position={GISCUS_CONFIG.inputPosition}
+            data-theme="preferred_color_scheme"
+            data-lang={copy.lang}
+            data-loading={GISCUS_CONFIG.loading}
+            crossorigin="anonymous"
+            async
+          ></script>
+        </>
+      ) : (
+        <>
+          <p class="text-[var(--text-secondary)] mb-3">{copy.description}</p>
+          <p class="text-[var(--text-secondary)] text-sm">{copy.hint}</p>
+        </>
+      )}
     </div>
   </div>
 </section>
-
-<script
-  src="https://giscus.app/client.js"
-  data-repo="your-username/your-repo"
-  data-repo-id="your-repo-id"
-  data-category="Announcements"
-  data-category-id="DIC_kwD..."
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="preferred_color_scheme"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
 
 <style>
   .giscus-frame {

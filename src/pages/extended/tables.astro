@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="表格语法 - Markdown 中文教程" description="学习如何在 Markdown 中创建表格。">
+<Layout
+  title="表格与状态面板 - Markdown 中文教程"
+  description="表格适合放状态、负责人和时间点这类扫描型信息，不适合塞成长段正文。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">表格</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            使用表格组织和展示数据，让信息结构化呈现。
+            表格最擅长呈现“页面状态、负责人、发布时间”这种需要横向对比的信息。它应该帮助扫读，而不是把整段解释塞进格子里。
           </p>
         </div>
       </div>
@@ -27,19 +30,22 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <p>表格由管道符（|）和连字符（-）组成：</p>
+          <p>表格由管道符和分隔线组成，适合记录站点改版进度或发布清单：</p>
 
-          <pre><code>| 语法 | 效果 |
-|------|------|
-| `**粗体**` | <strong>粗体</strong> |
-| `*斜体*` | <em>斜体</em> |</code></pre>
+          <pre><code>{`| 页面 | 状态 | 负责人 |
+|------|:----:|-------:|
+| 首页 | 已完成 | Albert |
+| Intro | 校对中 | Docs |
+| 单独语法页 | 进行中 | You |`}</code></pre>
 
           <h2>对齐方式</h2>
-          <p>通过在表头下方的连字符中添加冒号来设置对齐方式：</p>
+          <p>你可以在分隔线里用冒号控制对齐。左侧更适合名称，中间适合状态，右侧适合日期或优先级：</p>
 
-          <pre><code>| 左对齐 | 居中 | 右对齐 |
-|:------|:----:|------:|
-| 内容1 | 内容2 | 内容3 |</code></pre>
+          <pre><code>{`| 页面 | 状态 | 优先级 |
+|:-----|:----:|------:|
+| Headings | 已重写 | 高 |
+| Links | 已重写 | 高 |
+| Images | 待补充 | 中 |`}</code></pre>
 
           <h2>效果预览</h2>
         </div>
@@ -48,27 +54,38 @@ import Comments from '../../components/Comments.astro';
           <table class="w-full">
             <thead>
               <tr class="border-b-2 border-[var(--color-border-warm)]">
-                <th class="text-left py-2 px-3 font-medium">左对齐</th>
-                <th class="text-center py-2 px-3 font-medium">居中</th>
-                <th class="text-right py-2 px-3 font-medium">右对齐</th>
+                <th class="text-left py-2 px-3 font-medium">页面</th>
+                <th class="text-center py-2 px-3 font-medium">状态</th>
+                <th class="text-right py-2 px-3 font-medium">优先级</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-[var(--color-border-cream)]">
-                <td class="py-2 px-3">内容1</td>
-                <td class="py-2 px-3 text-center">内容2</td>
-                <td class="py-2 px-3 text-right">内容3</td>
+                <td class="py-2 px-3">Headings</td>
+                <td class="py-2 px-3 text-center">已重写</td>
+                <td class="py-2 px-3 text-right">高</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3">Links</td>
+                <td class="py-2 px-3 text-center">已重写</td>
+                <td class="py-2 px-3 text-right">高</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3">Images</td>
+                <td class="py-2 px-3 text-center">待补充</td>
+                <td class="py-2 px-3 text-right">中</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="prose">
-          <h2>实用技巧</h2>
+          <h2>写作建议</h2>
           <ul>
-            <li>可以使用快捷方式减少语法：`-:` 为右对齐，`:-:` 为居中，`:-` 为左对齐</li>
-            <li>表格前后不需要空行</li>
-            <li>单元格内可以使用链接、粗体、斜体等格式</li>
+            <li>一格里尽量只放一个信息点，例如状态、日期、负责人，不要把完整说明塞进去。</li>
+            <li>列数越少越容易在手机上阅读，真的很宽的表格就接受横向滚动，不要硬挤。</li>
+            <li>如果内容更像步骤或结论，优先考虑列表和段落，别为了“整齐”滥用表格。</li>
+            <li>状态类表格最好统一用词，例如一直用“已完成 / 进行中 / 待处理”，方便扫读。</li>
           </ul>
         </div>
       </div>

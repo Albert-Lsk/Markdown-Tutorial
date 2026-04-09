@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Links - Markdown Tutorial" description="Learn how to create hyperlinks in Markdown." lang="en">
+<Layout
+  title="Links That Move Readers Forward - Markdown Tutorial"
+  description="A good Markdown link should point to the next useful action, not just wrap the words 'click here'."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Links</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Create hyperlinks to connect to other pages or external resources.
+            Links should move readers to the next step: an intro page, a deployment guide, a repo, or a feedback channel.
           </p>
         </div>
       </div>
@@ -27,23 +31,40 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Basic Syntax</h2>
-          <p>Links consist of link text in brackets, followed by the URL in parentheses:</p>
-          <pre><code>[Link Text](https://example.com)</code></pre>
+          <p>Put the link text in brackets and the destination in parentheses:</p>
+          <pre><code>[Deployment Guide](https://vite.dev/guide/static-deploy.html)</code></pre>
 
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6 space-y-3">
+          <p>
+            Start with the <a href="/Markdown-Tutorial/en/intro" class="text-[var(--color-terracotta)] hover:underline">Intro page</a> if you want the big-picture structure first.
+          </p>
+          <p>
+            Before publishing, check the <a href="https://vite.dev/guide/static-deploy.html" class="text-[var(--color-terracotta)] hover:underline">Vite static deployment guide</a>.
+          </p>
+          <p>
+            Found a wording issue? Send it to <a href="mailto:docs@example.dev" class="text-[var(--color-terracotta)] hover:underline">docs@example.dev</a>.
+          </p>
+        </div>
+
+        <div class="prose">
           <h2>Adding a Title</h2>
-          <p>The title appears when you hover over the link and is optional:</p>
-          <pre><code>[Link Text](https://example.com "Link Title")</code></pre>
+          <p>If you want a short hover hint, add an optional title:</p>
+          <pre><code>[Release Notes](https://github.com/Albert-Lsk/Markdown-Tutorial "See the latest content updates")</code></pre>
 
-          <h2>URLs and Email Addresses</h2>
-          <p>Use angle brackets to make URLs or email addresses clickable:</p>
-          <pre><code>{"<https://markdown.com.cn>"}
-{"<fake@example.com>"}</code></pre>
+          <h2>Autolinks and Email</h2>
+          <p>If the address itself matters, use angle brackets:</p>
+          <pre><code>{`<https://albert-lsk.github.io/Markdown-Tutorial/en/>
+<docs@example.dev>`}</code></pre>
 
-          <h2>Best Practices</h2>
+          <h2>Writing Tips</h2>
           <ul>
-            <li>Use %20 instead of spaces in URLs for compatibility</li>
-            <li>Link text should be descriptive</li>
-            <li>Test your links to ensure they work</li>
+            <li>Make link text descriptive. “Deployment guide” is better than “click here.”</li>
+            <li>Use raw URLs only when the address itself is useful information.</li>
+            <li>For internal docs, choose labels that still make sense if the site structure evolves later.</li>
+            <li>Check high-value links before release, especially language switches and deep-page navigation.</li>
           </ul>
         </div>
       </div>

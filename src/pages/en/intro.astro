@@ -3,68 +3,119 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
+import { BASE_PATH } from '../../config';
+
+const introSections = [
+  { id: 'why-now', title: 'Why Markdown still matters now' },
+  { id: 'where-used', title: 'Where you are most likely to use it' },
+  { id: 'flow', title: 'How a Markdown file actually flows' },
+  { id: 'mistakes', title: 'Common beginner mistakes' },
+  { id: 'start-now', title: 'A 3-step practice plan' },
+  { id: 'next', title: 'What to learn next' },
+];
 ---
 
-<Layout title="Getting Started - Markdown Tutorial" description="Learn the basics of Markdown, what it is and why you should use it." lang="en">
+<Layout title="Getting Started with Markdown in Real Workflows" description="A practical Markdown getting-started page focused on real usage, file flow, common mistakes, and next steps." lang="en">
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
-        <div class="max-w-3xl">
+        <div class="max-w-3xl mx-auto">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
-            Getting Started
+            3-minute introduction
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
-            Markdown Basics
+            Start Using Markdown
           </h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Learn what Markdown is, why to use it, and how to get started.
+            This page skips the glossary treatment and focuses on where Markdown fits, how files move through real workflows, what to learn first, and what not to overthink.
           </p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container max-w-4xl">
-        <div class="prose">
-          <h2>What is Markdown?</h2>
-          <p>Markdown is a lightweight markup language that you can use to add formatting elements to plain text documents. Created by John Gruber in 2004, Markdown is now one of the world's most popular markup languages.</p>
-          <p>Key features of Markdown:</p>
-          <ul>
-            <li>Focus on text content</li>
-            <li>Plain text, easy to read, write, and version control</li>
-            <li>Simple syntax with minimal learning curve</li>
-          </ul>
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                On this page
+              </h3>
+              <nav class="space-y-2">
+                {introSections.map((section) => (
+                  <a href={`#${section.id}`} class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1">
+                    {section.title}
+                  </a>
+                ))}
+              </nav>
 
-          <blockquote>
-            <p>The overriding design goal for Markdown's formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.</p>
-          </blockquote>
+              <div class="mt-6 pt-6 border-t border-[var(--border-default)]">
+                <p class="text-sm text-[var(--text-secondary)] mb-3">
+                  Next step: move into the high-frequency syntax that shows up most often in real docs.
+                </p>
+                <a href={`${BASE_PATH}/en/basic`} class="btn btn-primary text-sm !px-4 !py-2">
+                  Go to basic syntax
+                </a>
+              </div>
+            </div>
+          </aside>
 
-          <h2>Why Use Markdown?</h2>
-          <ul>
-            <li><strong>Markdown is everywhere</strong> — Supported by GitHub, StackOverflow, CSDN, Notion and more</li>
-            <li><strong>Plain text is portable</strong> — Almost any application can open a Markdown file</li>
-            <li><strong>Platform independent</strong> — Create Markdown files on any device running any OS</li>
-            <li><strong>Future-proof</strong> — Even if an application stops being supported, you can still read Markdown files with a text editor</li>
-          </ul>
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <h2 id="why-now">Why Markdown still matters now</h2>
+              <p>Documentation is no longer just personal notes. It flows through Git repositories, issues, pull requests, internal knowledge bases, static sites, and AI-assisted writing tools. Markdown still sits in the middle as the most portable and collaboration-friendly text layer.</p>
+              <ul>
+                <li><strong>Platforms support it natively</strong>: GitHub, GitLab, Notion, Obsidian, and many documentation tools already speak Markdown.</li>
+                <li><strong>Plain text fits version control</strong>: diffs, reviews, and rollbacks stay readable.</li>
+                <li><strong>AI tools emit Markdown naturally</strong>: that makes editing, cleaning, and publishing easier.</li>
+              </ul>
 
-          <h2>Tools of the Trade</h2>
-          <p>The best way to learn Markdown is to start using it. You don't even need to download anything — try the online Markdown editor.</p>
+              <h2 id="where-used">Where you are most likely to use it</h2>
+              <ul>
+                <li><strong>READMEs</strong>: project context, setup steps, run commands, contribution rules, and FAQs.</li>
+                <li><strong>Collaboration threads</strong>: issues, PR descriptions, meeting notes, requirements, and debugging reports.</li>
+                <li><strong>Knowledge bases</strong>: notes, SOPs, learning logs, and design drafts.</li>
+                <li><strong>Published content</strong>: blogs, static docs sites, and public technical guides.</li>
+              </ul>
 
-          <h2>How Markdown Works</h2>
-          <p>When you write in Markdown, the text is stored in a plain text file with a <code>.md</code> or <code>.markdown</code> extension. A Markdown application processes the Markdown-formatted text and converts it to HTML for display in a web browser.</p>
+              <h2 id="flow">How a Markdown file actually flows</h2>
+              <ol>
+                <li>You write a <code>.md</code> file locally and structure it with headings, lists, links, and code blocks.</li>
+                <li>The file enters a repository and becomes something teammates can review, edit, and reuse.</li>
+                <li>A platform or build tool renders the Markdown into HTML, PDF, or an application-specific page.</li>
+                <li>The final content ships to GitHub, a knowledge base, a blog, or a documentation site.</li>
+              </ol>
 
-          <h2>What Can You Do with Markdown?</h2>
-          <ul>
-            <li><strong>Websites</strong> — Jekyll, GitHub Pages and other tools support Markdown for creating websites</li>
-            <li><strong>Documents</strong> — Great for notes and technical documentation</li>
-            <li><strong>Presentations</strong> — Remark, Cleaver and other tools support Markdown slides</li>
-            <li><strong>Email</strong> — Markdown Here extension supports Markdown in emails</li>
-          </ul>
+              <blockquote>
+                <p>Markdown is not the goal. It is the smallest useful format for making content easier to collaborate on, move around, search, and publish.</p>
+              </blockquote>
 
-          <h2>Markdown Flavors</h2>
-          <p>The confusing thing about using Markdown is that virtually every application implements a slightly different version of Markdown. These variants are often called "flavors."</p>
+              <h2 id="mistakes">Common beginner mistakes</h2>
+              <ul>
+                <li><strong>Trying to learn every syntax feature on day one</strong>: the high-frequency subset is much smaller than the full landscape.</li>
+                <li><strong>Memorizing syntax without structuring information</strong>: headings and grouping matter more than decorative tricks.</li>
+                <li><strong>Over-investing in editors too early</strong>: build the writing habit first, then refine the toolchain.</li>
+                <li><strong>Ignoring platform differences</strong>: GitHub-flavored Markdown, knowledge bases, and static site generators do not all support the same extensions.</li>
+              </ul>
+
+              <h2 id="start-now">A 3-step practice plan</h2>
+              <ol>
+                <li>Pick a real project and write or rewrite its README.</li>
+                <li>Use only headings, lists, links, code blocks, and emphasis.</li>
+                <li>Render it on GitHub or in your docs site so you can see the full write-to-publish loop.</li>
+              </ol>
+
+              <h2 id="next">What to learn next</h2>
+              <p>Once you understand the role Markdown plays, do not stay in theory mode. Move into the pages that map to real work.</p>
+              <ul>
+                <li><a href={`${BASE_PATH}/en/basic`}>Basic Syntax</a>: learn the few capabilities you will use constantly.</li>
+                <li><a href={`${BASE_PATH}/en/extended`}>Extended Syntax</a>: add tables, task lists, or footnotes when you actually need them.</li>
+                <li><a href={`${BASE_PATH}/en/editors`}>Editors</a>: choose tools after you know what kind of writing flow you want.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

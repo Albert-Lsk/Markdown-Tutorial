@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="任务列表 - Markdown 中文教程" description="学习在 Markdown 中创建任务列表（复选框列表）。">
+<Layout
+  title="任务列表与跟进清单 - Markdown 中文教程"
+  description="任务列表适合 PR 检查、发布准备和文档迁移，让状态一眼可见。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">任务列表</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            创建带有复选框的任务列表，方便跟踪进度。
+            任务列表非常适合写 issue 跟进、PR 自检和发布前清单。它把“要不要继续往下做”这件事直接变成可勾选状态。
           </p>
         </div>
       </div>
@@ -27,15 +30,16 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <p>任务列表使用方括号表示复选框状态：</p>
+          <p>方括号里的空格表示未完成，<code>x</code> 表示已完成：</p>
           <ul>
-            <li><code>[ ]</code> - 未完成的任务</li>
-            <li><code>[x]</code> - 已完成的任务</li>
+            <li><code>[ ]</code> 未完成</li>
+            <li><code>[x]</code> 已完成</li>
           </ul>
 
-          <pre><code>- [x] 购买食材
-- [ ] 做饭
-- [ ] 洗碗</code></pre>
+          <pre><code>{`- [x] 修复暗色模式下的文字对比度
+- [x] 让 Intro 页面出现在导航栏
+- [ ] 替换剩余语法页的模板示例
+- [ ] 复查英文页面文案`}</code></pre>
 
           <h2>效果预览</h2>
         </div>
@@ -44,26 +48,36 @@ import Comments from '../../components/Comments.astro';
           <ul class="space-y-2">
             <li class="flex items-center gap-2">
               <input type="checkbox" checked disabled class="w-4 h-4 rounded text-[var(--color-terracotta)]" />
-              <span class="text-[var(--text-secondary)] line-through">购买食材</span>
+              <span class="text-[var(--text-secondary)] line-through">修复暗色模式下的文字对比度</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <input type="checkbox" checked disabled class="w-4 h-4 rounded text-[var(--color-terracotta)]" />
+              <span class="text-[var(--text-secondary)] line-through">让 Intro 页面出现在导航栏</span>
             </li>
             <li class="flex items-center gap-2">
               <input type="checkbox" disabled class="w-4 h-4 rounded border border-[var(--color-border-warm)]" />
-              <span class="text-[var(--text-secondary)]">做饭</span>
+              <span class="text-[var(--text-secondary)]">替换剩余语法页的模板示例</span>
             </li>
             <li class="flex items-center gap-2">
               <input type="checkbox" disabled class="w-4 h-4 rounded border border-[var(--color-border-warm)]" />
-              <span class="text-[var(--text-secondary)]">洗碗</span>
+              <span class="text-[var(--text-secondary)]">复查英文页面文案</span>
             </li>
           </ul>
         </div>
 
         <div class="prose">
-          <h2>使用场景</h2>
+          <h2>常见使用场景</h2>
           <ul>
-            <li>项目管理任务跟踪</li>
-            <li>待办事项列表</li>
-            <li>旅行准备清单</li>
-            <li>购物清单</li>
+            <li>PR 提交前自检，例如“文案已校对”“截图已更新”“构建已通过”。</li>
+            <li>发布准备清单，例如“切换站点地址”“确认语言链接”“同步更新记录”。</li>
+            <li>文档迁移过程中的状态跟踪，方便团队知道哪些页已经重写、哪些还没动。</li>
+          </ul>
+
+          <h2>写作建议</h2>
+          <ul>
+            <li>任务项最好写成可以直接判断完成与否的动作，避免“继续优化”这种无法打勾的表述。</li>
+            <li>同一份清单里保持一种格式，例如统一使用连字符开头和小写 <code>x</code>。</li>
+            <li>如果一项任务需要解释背景，补一句说明，不要把整段背景塞进任务标题里。</li>
           </ul>
         </div>
       </div>

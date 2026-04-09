@@ -3,38 +3,42 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
+import { BASE_PATH } from '../../../config';
 
-const basicTopics = [
-  { href: '/en/basic/headings', title: 'Headings', desc: 'Create different levels of headings using # symbols' },
-  { href: '/en/basic/paragraphs', title: 'Paragraphs', desc: 'How to create paragraphs and line breaks' },
-  { href: '/en/basic/line-breaks', title: 'Line Breaks', desc: 'Line break rules in Markdown' },
-  { href: '/en/basic/emphasis', title: 'Emphasis', desc: 'Bold and italic text formatting' },
-  { href: '/en/basic/blockquotes', title: 'Blockquotes', desc: 'Create block quotations' },
-  { href: '/en/basic/lists', title: 'Lists', desc: 'Ordered and unordered lists' },
-  { href: '/en/basic/code', title: 'Code', desc: 'Inline code and code blocks' },
-  { href: '/en/basic/horizontal-rules', title: 'Horizontal Rules', desc: 'Create visual separators' },
-  { href: '/en/basic/links', title: 'Links', desc: 'Create hyperlinks' },
-  { href: '/en/basic/images', title: 'Images', desc: 'Insert and manage images' },
-  { href: '/en/basic/escaping-characters', title: 'Escaping', desc: 'How to display special characters' },
-  { href: '/en/basic/htmls', title: 'HTML Tags', desc: 'Use HTML tags in Markdown' },
+const starterTrack = [
+  { href: `${BASE_PATH}/en/basic/headings`, title: 'Headings', desc: 'Build the information hierarchy before worrying about polish.' },
+  { href: `${BASE_PATH}/en/basic/lists`, title: 'Lists', desc: 'Steps, requirements, tasks, and summaries all rely on lists.' },
+  { href: `${BASE_PATH}/en/basic/links`, title: 'Links', desc: 'Connect context, references, commands, and related pages.' },
+  { href: `${BASE_PATH}/en/basic/code`, title: 'Code', desc: 'Protect commands, configs, and examples from being mangled by prose.' },
+  { href: `${BASE_PATH}/en/basic/paragraphs`, title: 'Paragraphs', desc: 'Control reading rhythm instead of shipping one giant wall of text.' },
+  { href: `${BASE_PATH}/en/basic/emphasis`, title: 'Emphasis', desc: 'Give extra weight to warnings, conclusions, and key decisions.' },
+];
+
+const supportTopics = [
+  { href: `${BASE_PATH}/en/basic/blockquotes`, title: 'Blockquotes', desc: 'Useful when you need callouts, notes, or quoted source material.' },
+  { href: `${BASE_PATH}/en/basic/horizontal-rules`, title: 'Horizontal Rules', desc: 'Use them when sections need separation, not by default everywhere.' },
+  { href: `${BASE_PATH}/en/basic/images`, title: 'Images', desc: 'Add this when screenshots and diagrams become necessary.' },
+  { href: `${BASE_PATH}/en/basic/line-breaks`, title: 'Line Breaks', desc: 'Important to understand, but not a first-day priority.' },
+  { href: `${BASE_PATH}/en/basic/escaping-characters`, title: 'Escaping', desc: 'Most useful when teaching syntax or showing raw characters.' },
+  { href: `${BASE_PATH}/en/basic/htmls`, title: 'HTML Tags', desc: 'Reach for this only when plain Markdown is not expressive enough.' },
 ];
 ---
 
-<Layout title="Basic Syntax - Markdown Tutorial" lang="en">
+<Layout title="High-Frequency Markdown Basics" lang="en">
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
-            Basic Syntax
+            High-frequency syntax
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
-            Markdown Basic Syntax
+            Learn These 6 Markdown Patterns First
           </h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Markdown is a lightweight markup language with simple formatting syntax that lets you focus on content rather than layout.
+            If your goal is to write clearer READMEs, issues, and project notes, you do not need the entire syntax catalog on day one.
           </p>
         </div>
       </div>
@@ -46,37 +50,86 @@ const basicTopics = [
           <aside class="lg:col-span-1">
             <div class="card sticky top-24">
               <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
-                In This Section
+                Recommended order
               </h3>
-              <nav class="space-y-1">
-                {basicTopics.map((topic) => (
+              <nav class="space-y-2">
+                {starterTrack.map((topic, index) => (
                   <a
                     href={topic.href}
-                    class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
+                    class="flex items-start gap-3 text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1"
                   >
-                    {topic.title}
+                    <span class="inline-flex w-5 h-5 rounded-full bg-[var(--bg-muted)] text-[var(--text-primary)] items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                      {index + 1}
+                    </span>
+                    <span>{topic.title}</span>
                   </a>
                 ))}
               </nav>
+
+              <div class="mt-6 pt-6 border-t border-[var(--border-default)]">
+                <h4 class="font-medium text-[var(--text-primary)] mb-3">Add later as needed</h4>
+                <div class="space-y-2">
+                  {supportTopics.map((topic) => (
+                    <a href={topic.href} class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)]">
+                      {topic.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </aside>
 
           <div class="lg:col-span-3">
             <div class="prose">
-              <p class="text-lg text-[var(--text-secondary)] mb-6">
-                Don't be intimidated by "markup" or "language" — Markdown's syntax is remarkably simple. With fewer than ten common marking symbols, you can write beautifully formatted documents in no time.
-              </p>
+              <h2>If you only have 30 minutes today</h2>
+              <p>Do not try to memorize the entire Markdown surface area. For READMEs, collaboration notes, project docs, and lightweight knowledge bases, only a handful of syntax patterns show up constantly. Learn those first and your writing improves immediately.</p>
 
-              <p class="text-lg text-[var(--text-secondary)] mb-6">
-                These fewer-than-ten symbols allow you to <strong>write elegantly and immersively, focusing on content instead of formatting</strong>, achieving a state of "mind at ease, code flowing freely."
-              </p>
+              <h2>Start with these 6</h2>
+              <ul>
+                <li><strong>Headings</strong>: they create the structure that makes scanning possible.</li>
+                <li><strong>Lists</strong>: they carry steps, tasks, requirements, and summaries.</li>
+                <li><strong>Links</strong>: they connect references, related pages, and context.</li>
+                <li><strong>Code</strong>: they preserve commands, configuration, and examples accurately.</li>
+                <li><strong>Paragraphs</strong>: they control pacing and keep content readable.</li>
+                <li><strong>Emphasis</strong>: they highlight what truly matters instead of shouting everywhere.</li>
+              </ul>
 
-              <h2>Get Started</h2>
-              <p>Start learning Markdown's basic syntax with headings.</p>
+              <h2>When to learn the rest</h2>
+              <p>Images, blockquotes, escaping, horizontal rules, and inline HTML all have their place, but they are rarely the bottleneck on day one. Add them when your actual documents demand them.</p>
+
+              <h2>What a “good enough” Markdown document should contain</h2>
+              <ul>
+                <li>A clear heading structure that a reader can scan in seconds.</li>
+                <li>Just enough lists to organize steps and decisions.</li>
+                <li>Accurate links and code blocks so instructions stay trustworthy.</li>
+                <li>Minimal but deliberate emphasis for warnings, conclusions, and key actions.</li>
+              </ul>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              {basicTopics.slice(0, 6).map((topic) => (
+            <div class="mt-10">
+              <h3 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-6">
+                Learn these first
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {starterTrack.map((topic) => (
+                  <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
+                    <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
+                      {topic.title}
+                    </h3>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                      {topic.desc}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <h3 class="font-serif text-2xl font-medium text-[var(--text-primary)] mb-6">
+                Add these when the job calls for them
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {supportTopics.map((topic) => (
                 <a href={topic.href} class="card group hover:shadow-whisper transition-all hover:border-[var(--color-terracotta)]">
                   <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-terracotta)]">
                     {topic.title}
@@ -85,7 +138,8 @@ const basicTopics = [
                     {topic.desc}
                   </p>
                 </a>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

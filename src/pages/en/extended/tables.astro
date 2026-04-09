@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Tables - Markdown Tutorial" description="Learn how to create tables in Markdown." lang="en">
+<Layout
+  title="Tables for Status and Ownership - Markdown Tutorial"
+  description="Tables work best for scan-friendly data such as status, ownership, and priority, not long paragraphs."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Tables</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Organize and display data using tables for structured presentation.
+            Tables are great for answers readers need to compare at a glance: what changed, who owns it, and what still needs work.
           </p>
         </div>
       </div>
@@ -27,19 +31,22 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Basic Syntax</h2>
-          <p>Tables consist of pipes (|) and hyphens (-):</p>
+          <p>Use pipes and separator rows to build a compact status table:</p>
 
-          <pre><code>{`| Syntax | Output |
-| --- | --- |
-| **bold** | <strong>bold</strong> |
-| *italic* | <em>italic</em> |`}</code></pre>
+          <pre><code>{`| Page | Status | Owner |
+|------|:------:|------:|
+| Homepage | Rewritten | Albert |
+| Intro | Editing | Docs |
+| Syntax Pages | In Progress | You |`}</code></pre>
 
           <h2>Alignment</h2>
-          <p>Set alignment by adding colons in the hyphens below the header:</p>
+          <p>Alignment is useful when each column has a clear role, such as label, state, and priority:</p>
 
-          <pre><code>{`| Left | Center | Right |
-|:---|:----:| ---:|
-| Content1 | Content2 | Content3 |`}</code></pre>
+          <pre><code>{`| Page | Status | Priority |
+|:-----|:------:|---------:|
+| Headings | Rewritten | High |
+| Links | Rewritten | High |
+| Images | Pending | Medium |`}</code></pre>
 
           <h2>Preview</h2>
         </div>
@@ -48,27 +55,38 @@ import Comments from '../../../components/Comments.astro';
           <table class="w-full">
             <thead>
               <tr class="border-b-2 border-[var(--color-border-warm)]">
-                <th class="text-left py-2 px-3 font-medium">Left</th>
-                <th class="text-center py-2 px-3 font-medium">Center</th>
-                <th class="text-right py-2 px-3 font-medium">Right</th>
+                <th class="text-left py-2 px-3 font-medium">Page</th>
+                <th class="text-center py-2 px-3 font-medium">Status</th>
+                <th class="text-right py-2 px-3 font-medium">Priority</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-[var(--color-border-cream)]">
-                <td class="py-2 px-3">Content1</td>
-                <td class="py-2 px-3 text-center">Content2</td>
-                <td class="py-2 px-3 text-right">Content3</td>
+                <td class="py-2 px-3">Headings</td>
+                <td class="py-2 px-3 text-center">Rewritten</td>
+                <td class="py-2 px-3 text-right">High</td>
+              </tr>
+              <tr class="border-b border-[var(--color-border-cream)]">
+                <td class="py-2 px-3">Links</td>
+                <td class="py-2 px-3 text-center">Rewritten</td>
+                <td class="py-2 px-3 text-right">High</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3">Images</td>
+                <td class="py-2 px-3 text-center">Pending</td>
+                <td class="py-2 px-3 text-right">Medium</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="prose">
-          <h2>Tips</h2>
+          <h2>Writing Tips</h2>
           <ul>
-            <li>Use shortcuts: `-:` for right, `:-:` for center, `:-` for left</li>
-            <li>No blank lines needed before or after tables</li>
-            <li>Links, bold, italic can be used inside cells</li>
+            <li>Keep each cell focused on one piece of information.</li>
+            <li>Use short, consistent status labels so readers can scan down the column quickly.</li>
+            <li>If the content reads more like explanation than comparison, a paragraph or list is usually better.</li>
+            <li>Wide tables are fine when they truly add value, but do not force every chunk of structured content into a grid.</li>
           </ul>
         </div>
       </div>

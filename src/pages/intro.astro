@@ -3,69 +3,119 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Comments from '../components/Comments.astro';
+import { BASE_PATH } from '../config';
+
+const introSections = [
+  { id: 'why-now', title: '为什么现在还值得学 Markdown' },
+  { id: 'where-used', title: '你最可能在哪些地方用到它' },
+  { id: 'flow', title: '一个 Markdown 文件如何流转' },
+  { id: 'mistakes', title: '新手最容易踩的坑' },
+  { id: 'start-now', title: '3 步开始练习' },
+  { id: 'next', title: '下一步学什么' },
+];
 ---
 
-<Layout title="Markdown 入门基础 - Markdown 中文教程" description="学习 Markdown 的基础知识，了解什么是 Markdown 以及为什么要使用它。">
+<Layout title="Markdown 上手路线 - 把它用进真实工作流" description="一页讲清 Markdown 适合什么场景、文件如何流转、先学什么以及如何开始练习。">
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
-        <div class="max-w-3xl">
+        <div class="max-w-3xl mx-auto">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
-            入门
+            3 分钟上手
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">
-            Markdown 入门基础
+            先把 Markdown 用起来
           </h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            了解 Markdown 是什么、为什么使用它，以及如何开始。
+            这一页不讲术语大全，只告诉你 Markdown 适合哪里、文件怎么流转、先学什么以及别踩什么坑。
           </p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container max-w-4xl">
-        <div class="prose">
-          <h2>Markdown 是什么？</h2>
-          <p>Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。</p>
-          <p>Markdown 的核心特点：</p>
-          <ul>
-            <li>专注于文字内容</li>
-            <li>纯文本，易读易写，可以方便地纳入版本控制</li>
-            <li>语法简单，没有什么学习成本</li>
-          </ul>
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <aside class="lg:col-span-1">
+            <div class="card sticky top-24">
+              <h3 class="font-serif text-lg font-medium text-[var(--text-primary)] mb-4">
+                本页导航
+              </h3>
+              <nav class="space-y-2">
+                {introSections.map((section) => (
+                  <a href={`#${section.id}`} class="block text-sm text-[var(--text-secondary)] hover:text-[var(--color-terracotta)] py-1">
+                    {section.title}
+                  </a>
+                ))}
+              </nav>
 
-          <blockquote>
-            <p>Markdown 语法的首要设计目标是尽可能易读。基于这个目标，Markdown 格式的文档能够以纯文本形式原样发布，而不会看起来像被填满了标签或格式化指令。</p>
-          </blockquote>
+              <div class="mt-6 pt-6 border-t border-[var(--border-default)]">
+                <p class="text-sm text-[var(--text-secondary)] mb-3">
+                  下一步：进入高频基础语法，先学最常用的 6 项能力。
+                </p>
+                <a href={`${BASE_PATH}/basic`} class="btn btn-primary text-sm !px-4 !py-2">
+                  进入基础语法
+                </a>
+              </div>
+            </div>
+          </aside>
 
-          <h2>为什么要使用 Markdown？</h2>
-          <ul>
-            <li><strong>Markdown 无处不在</strong> — GitHub、StackOverflow、CSDN、简书等平台都支持 Markdown</li>
-            <li><strong>纯文本可移植</strong> — 几乎可以使用任何应用程序打开 Markdown 文件</li>
-            <li><strong>独立于平台</strong> — 你可以在任何操作系统的任何设备上创建 Markdown 文件</li>
-            <li><strong>适应未来变化</strong> — 即使应用程序停止支持，你仍可以用文本编辑器读取 Markdown 文件</li>
-          </ul>
+          <div class="lg:col-span-3">
+            <div class="prose">
+              <h2 id="why-now">为什么现在还值得学 Markdown</h2>
+              <p>今天的文档已经不只写给自己看。它会进入 Git 仓库、Issue、PR、知识库、静态站点，甚至会被 AI 工具读取、生成和继续加工。Markdown 仍然是这些环节里最通用、最容易迁移的一层文本格式。</p>
+              <ul>
+                <li><strong>协作平台原生支持</strong>：GitHub、GitLab、Notion、Obsidian 和大量文档工具都直接吃 Markdown。</li>
+                <li><strong>纯文本可版本化</strong>：它适合纳入 Git，做 diff、review、回滚都自然。</li>
+                <li><strong>便于 AI 二次整理</strong>：很多 AI 输出天然就是 Markdown，后续清洗和发布都方便。</li>
+              </ul>
 
-          <h2>工欲善其事，必先利其器</h2>
-          <p>Markdown 入门的最佳方法就是多使用它。你甚至不需要下载任何程序，就可以使用在线 Markdown 编辑器来编写 Markdown。</p>
-          <p>学习本教程时，你可以打开在线编辑器，一边学习语法一边练习。</p>
+              <h2 id="where-used">你最可能在哪些地方用到它</h2>
+              <ul>
+                <li><strong>README</strong>：项目背景、安装方式、运行命令、目录结构和贡献指南。</li>
+                <li><strong>协作讨论</strong>：Issue、PR 描述、会议纪要、需求拆分和排障记录。</li>
+                <li><strong>知识库</strong>：个人笔记、团队 SOP、学习清单和设计草稿。</li>
+                <li><strong>发布内容</strong>：博客、静态文档站、课程说明页和对外知识分享。</li>
+              </ul>
 
-          <h2>Markdown 的工作原理</h2>
-          <p>使用 Markdown 格式书写的文本存储在带有 <code>.md</code> 或 <code>.markdown</code> 扩展名的纯文本文件中。Markdown 应用程序使用解析器将 Markdown 格式的文本转换为 HTML，以便在 Web 浏览器中显示。</p>
+              <h2 id="flow">一个 Markdown 文件如何流转</h2>
+              <ol>
+                <li>你先在本地写一份 <code>.md</code> 文件，把标题、列表、链接、代码结构整理好。</li>
+                <li>文件进入 Git 仓库，开始被团队 review、修改、同步和复用。</li>
+                <li>平台或构建工具把 Markdown 渲染成 HTML、PDF 或应用内页面。</li>
+                <li>最终内容出现在 GitHub、知识库、博客、文档站，或者继续作为资料沉淀下去。</li>
+              </ol>
 
-          <h2>Markdown 有什么用？</h2>
-          <ul>
-            <li><strong>网站</strong> — Jekyll、GitHub Pages 等工具支持 Markdown 创建网站</li>
-            <li><strong>文档</strong> — 适合创建笔记、技术文档</li>
-            <li><strong>演示文稿</strong> — Remark、Cleaver 等工具支持 Markdown 幻灯片</li>
-            <li><strong>邮件</strong> — Markdown Here 插件支持在邮件中使用 Markdown</li>
-          </ul>
+              <blockquote>
+                <p>Markdown 不是目的。它的价值在于让内容更容易协作、迁移、搜索和发布。</p>
+              </blockquote>
 
-          <h2>Markdown 方言</h2>
-          <p>每个 Markdown 应用程序都实现了稍有不同的 Markdown 语法，这些变体被称为"方言"。掌握你的应用程序所实现的 Markdown 语法是很重要的。</p>
+              <h2 id="mistakes">新手最容易踩的坑</h2>
+              <ul>
+                <li><strong>一上来就学完所有语法</strong>：高频能力只有几项，先学会最常用的再说。</li>
+                <li><strong>只记语法，不管结构</strong>：没有标题层级和信息分段，再多语法也救不了可读性。</li>
+                <li><strong>过早依赖花哨编辑器</strong>：先能用纯文本写清楚，再决定工具链。</li>
+                <li><strong>忽视平台差异</strong>：GitHub、Obsidian、静态站点支持的扩展语法并不完全一样。</li>
+              </ul>
+
+              <h2 id="start-now">3 步开始练习</h2>
+              <ol>
+                <li>随手找一个项目，先写一版 README，把项目做什么、怎么启动、常见命令写清楚。</li>
+                <li>只使用标题、列表、链接、代码块和强调这几项最常见语法。</li>
+                <li>把内容发到 GitHub 或本地文档站里看一遍，体会“写作”和“发布”之间的连接。</li>
+              </ol>
+
+              <h2 id="next">下一步学什么</h2>
+              <p>如果你已经理解 Markdown 的角色，就不要继续停留在概念层。下一步应该直接进入高频场景。</p>
+              <ul>
+                <li><a href={`${BASE_PATH}/basic`}>基础语法</a>：先学标题、列表、链接、代码这些最常用能力。</li>
+                <li><a href={`${BASE_PATH}/extended`}>扩展语法</a>：等你真的需要表格、任务列表、脚注时再补。</li>
+                <li><a href={`${BASE_PATH}/editors`}>编辑器</a>：最后再选工具，而不是被工具牵着走。</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

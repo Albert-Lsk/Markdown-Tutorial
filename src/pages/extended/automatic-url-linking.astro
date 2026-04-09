@@ -5,11 +5,14 @@ import Footer from '../../components/Footer.astro';
 import Comments from '../../components/Comments.astro';
 ---
 
-<Layout title="自动链接 - Markdown 中文教程" description="学习 Markdown 的自动链接功能。">
+<Layout
+  title="自动链接与裸地址 - Markdown 中文教程"
+  description="当地址本身就是信息时，用自动链接比硬塞进普通锚文本更直接。"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +20,7 @@ import Comments from '../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">自动链接</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Markdown 自动将 URL 和邮箱地址转换为可点击链接。
+            有些场景下，地址本身就是你要传达的信息，比如仓库地址、线上站点、反馈邮箱。这时自动链接会比普通文字链接更直接。
           </p>
         </div>
       </div>
@@ -27,19 +30,30 @@ import Comments from '../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>基本语法</h2>
-          <p>使用尖括号包裹 URL 或邮箱地址：</p>
+          <p>用尖括号包裹 URL 或邮箱地址即可：</p>
 
-          <pre><code>&lt;https://markdown.com.cn&gt;
-&lt;fake@example.com&gt;</code></pre>
+          <pre><code>{`<https://albert-lsk.github.io/Markdown-Tutorial/>
+<https://github.com/Albert-Lsk/Markdown-Tutorial>
+<docs@example.dev>`}</code></pre>
 
           <h2>效果预览</h2>
           <ul>
-            <li><a href="https://markdown.com.cn" class="text-[var(--color-terracotta)]">https://markdown.com.cn</a></li>
-            <li><a href="mailto:fake@example.com" class="text-[var(--color-terracotta)]">fake@example.com</a></li>
+            <li><a href="https://albert-lsk.github.io/Markdown-Tutorial/" class="text-[var(--color-terracotta)]">https://albert-lsk.github.io/Markdown-Tutorial/</a></li>
+            <li><a href="https://github.com/Albert-Lsk/Markdown-Tutorial" class="text-[var(--color-terracotta)]">https://github.com/Albert-Lsk/Markdown-Tutorial</a></li>
+            <li><a href="mailto:docs@example.dev" class="text-[var(--color-terracotta)]">docs@example.dev</a></li>
+          </ul>
+
+          <h2>什么时候适合用</h2>
+          <ul>
+            <li>文档里要明确给出真实地址，例如线上演示站、仓库、镜像源。</li>
+            <li>你希望读者直接复制地址本身，而不是先理解一段锚文本。</li>
+            <li>需要快速列出联系邮箱或回调地址时。</li>
           </ul>
 
           <h2>注意事项</h2>
-          <p>不带尖括号的裸 URL 在某些 Markdown 处理器中也会自动转换为链接，但在基本语法层面推荐使用尖括号包裹以确保兼容性。</p>
+          <p>
+            如果你更关心“这是什么链接”，而不是“这个地址长什么样”，还是优先使用普通链接语法。自动链接适合展示地址本身，而不是替代所有链接写法。
+          </p>
         </div>
       </div>
     </section>

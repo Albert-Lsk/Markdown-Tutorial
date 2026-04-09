@@ -5,11 +5,15 @@ import Footer from '../../../components/Footer.astro';
 import Comments from '../../../components/Comments.astro';
 ---
 
-<Layout title="Lists - Markdown Tutorial" description="Learn how to create ordered and unordered lists in Markdown." lang="en">
+<Layout
+  title="Lists for Tasks and Steps - Markdown Tutorial"
+  description="Lists work best when they turn scattered notes into clear tasks, ordered steps, or grouped deliverables."
+  lang="en"
+>
   <Header />
 
   <main>
-    <section class="section section-dark">
+    <section class="section section-hero">
       <div class="container">
         <div class="max-w-3xl">
           <p class="text-sm font-medium tracking-wider uppercase text-[var(--color-terracotta)] mb-4">
@@ -17,7 +21,7 @@ import Comments from '../../../components/Comments.astro';
           </p>
           <h1 class="font-serif-display text-[var(--text-inverse)] mb-6">Lists</h1>
           <p class="text-xl text-[var(--text-on-dark)] opacity-80" style="line-height: 1.6;">
-            Organize items into ordered or unordered lists to make information structured and readable.
+            Lists are most useful when they turn vague notes into actions: what changed this week, what ships next, and what happens first.
           </p>
         </div>
       </div>
@@ -27,33 +31,54 @@ import Comments from '../../../components/Comments.astro';
       <div class="container max-w-4xl">
         <div class="prose">
           <h2>Unordered Lists</h2>
-          <p>To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of each item:</p>
-          <pre><code>{`- First item
-- Second item
-- Third item
-- Fourth item`}</code></pre>
+          <p>Use unordered lists when sequence does not matter:</p>
+          <pre><code>{`- Rewrite the homepage around workflows
+- Add Intro to the main navigation
+- Fix low-contrast text in dark mode`}</code></pre>
 
           <h2>Ordered Lists</h2>
-          <p>To create an ordered list, add numbers followed by periods before each item:</p>
-          <pre><code>{`1. First item
-2. Second item
-3. Third item
-4. Fourth item`}</code></pre>
+          <p>Use ordered lists when the reader should follow steps in sequence:</p>
+          <pre><code>{`1. Preview the site locally
+2. Check links and screenshots
+3. Run npm run build
+4. Publish to GitHub Pages`}</code></pre>
 
           <h2>Nested Lists</h2>
-          <p>Indent one or more items to create nested lists:</p>
-          <pre><code>{`- Fruit
-  - Apple
-  - Banana
-- Vegetables
-  1. Tomato
-  2. Cucumber`}</code></pre>
+          <p>Indent child items when you need a second level of detail:</p>
+          <pre><code>{`- This week's docs work
+  - Rewrite headings and links pages
+  - Update examples to match real docs workflows
+- Release checks
+  1. Run npm run build
+  2. Verify the English entry points`}</code></pre>
 
-          <h2>Best Practices</h2>
+          <h2>Preview</h2>
+        </div>
+
+        <div class="card my-6">
+          <p class="font-medium mb-2">This week:</p>
+          <ul class="list-disc list-inside mb-4 space-y-1 text-[var(--text-secondary)]">
+            <li>Refresh the homepage voice</li>
+            <li>Rewrite high-traffic syntax pages</li>
+            <li>Recheck language switching</li>
+          </ul>
+
+          <p class="font-medium mb-2">Release order:</p>
+          <ol class="list-decimal list-inside space-y-1 text-[var(--text-secondary)]">
+            <li>Review visuals and links</li>
+            <li>Run the build</li>
+            <li>Confirm output paths</li>
+            <li>Push the update</li>
+          </ol>
+        </div>
+
+        <div class="prose">
+          <h2>Writing Tips</h2>
           <ul>
-            <li>Numbers don't need to be in sequential order</li>
-            <li>Lists should start with number 1</li>
-            <li>Don't mix different delimiters in the same list</li>
+            <li>Use unordered lists for collections and ordered lists for procedures.</li>
+            <li>Start each item with a clear noun or verb so readers can scan quickly.</li>
+            <li>Keep nesting shallow. If you need too many levels, a heading or table is probably a better fit.</li>
+            <li>If you need progress tracking, a task list is usually a better next step than a plain list.</li>
           </ul>
         </div>
       </div>
