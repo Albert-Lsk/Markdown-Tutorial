@@ -420,6 +420,8 @@ body {
 .prose pre code {
   background: none;
   padding: 0;
+  color: inherit;
+  font-size: inherit;
 }
 
 .prose ul, .prose ol {
